@@ -60,38 +60,63 @@
             </fieldset>
           </form>
 
-          <form id="route-show-firm" class="border">
+          <form id="route-show-form" class="border">
             <fieldset>
               <legend>Get One Route</legend>
                 <input type="text" name="route[id]" placeholder="Route ID Here">
-                <input type="submit">
+                <input type="submit" value="Get a Route">
             </fieldset>
           </form>
 
-          <form id="example-delete" class="border">
+          <form id="route-delete-form" class="border">
             <fieldset>
-              <legend>Delete One Example</legend>
-              <input type="text" name="example[id]" placeholder="Example ID Here">
-              <input type="submit" value="Delete Example">
+              <legend>Delete One Route</legend>
+              <input type="text" name="route[id]" placeholder="Route ID Here">
+              <input type="submit" value="Delete Route">
             </fieldset>
           </form>
 
           <form id="route-create-form" class="border">
             <fieldset>
               <legend>Create One Route</legend>
-              <input type="text" name="route[text]" placeholder="Example Text Here">
-              <input type="submit" value="Create Example">
+              <input type="text" name="route[name]" placeholder="Route Name Here">
+              <input type="text" name="route[rating]" placeholder="Route Rating Here">
+              <input type="text" name="route[location]" placeholder="Route Location Here">
+              <input type="text" name="route[route_type]" placeholder="Route Type Here">
+              <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
+              <input type="radio" name="route[outdoors]" value=true >Outdoors
+              <input type="radio" name="route[outdoors]" value=false >Indoors<br>
+              <input type="checkbox" name="route[attempted]" value=true >Attempted?
+              <input type="checkbox" name="route[completed]" value=true >Completed?
+              <input type="checkbox" name="route[sent]" value=true >Sent?
+              <input type="checkbox" name="route[project]" value=true >Project?<br>
+              <input type="number" name="route[hangs]" placeholder="Route Hangs Here">
+              <input type="text" name="route[comments]" placeholder="Route Comments Here">
+              <input type="submit" value="Create Route">
             </fieldset>
           </form>
 
-          <form id="example-update" class="border">
+          <form id="route-update-form" class="border">
             <fieldset>
-              <legend>Update One Example</legend>
-              <input type="text" name="example[id]" placeholder="Example ID Here">
-              <input type="text" name="example[text]" placeholder="Example Text Here">
-              <input type="submit" value="Update Example">
+              <legend>Update One Route</legend>
+              <input type="text" name="route[id]" placeholder="Route ID Here"><br>
+              <input type="text" name="route[name]" placeholder="Route Name Here">
+              <input type="text" name="route[rating]" placeholder="Route Rating Here">
+              <input type="text" name="route[location]" placeholder="Route Location Here">
+              <input type="text" name="route[route_type]" placeholder="Route Type Here">
+              <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
+              <input type="radio" name="route[outdoors]" value=true >Outdoors
+              <input type="radio" name="route[outdoors]" value=false >Indoors<br>
+              <input type="checkbox" name="route[attempted]" value=true >Attempted?
+              <input type="checkbox" name="route[completed]" value=true >Completed?
+              <input type="checkbox" name="route[sent]" value=true >Sent?
+              <input type="checkbox" name="route[project]" value=true >Project?<br>
+              <input type="number" name="route[hangs]" placeholder="Route Hangs Here">
+              <input type="text" name="route[comments]" placeholder="Route Comments Here">
+              <input type="submit" value="Create Route">
             </fieldset>
           </form>
+          <p id='newcontent'></p>
         </div>
       </div>
     </body>
