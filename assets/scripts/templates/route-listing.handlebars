@@ -1,0 +1,32 @@
+
+{{#each routes as |route|}}
+
+  <h3 data-id="{{route.id}}"> Name: {{route.name}}</h3>
+  <div>
+    Rating:  {{route.rating}}
+    Location:  {{route.location}}
+    Type:  {{route.route_type}}
+    {{#if route.outdoors}}
+      Outdoors
+    {{else}}
+      Gym
+    {{/if}}
+    {{#if route.attempted}}
+      Attempted
+    {{/if}}
+    {{#if route.completed}}
+      Completed
+    {{/if}}
+    {{#if route.sent}}
+      Sent
+    {{/if}}
+    {{#if route.project}}
+      Project
+    {{/if}}
+    Hangs: {{route.hangs}}
+    Color:  {{route.color}}
+    Comments:  {{route.comments}}
+    Owner:  {{route.user_id}}
+  </div>
+
+{{/each}}

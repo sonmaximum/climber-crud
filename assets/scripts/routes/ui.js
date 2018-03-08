@@ -1,10 +1,15 @@
 'use strict'
 
+const indexRoutesTemplate = require('../templates/route-listing.handlebars')
+
 const store = require('../store')
 
 const routeIndexSuccess = function (data) {
   $('#message').text('Index Succeeded')
-  console.log(data)
+  console.table(data.routes)
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
 }
 
 const routeIndexFailure = function (error) {
@@ -14,7 +19,10 @@ const routeIndexFailure = function (error) {
 
 const routeShowSuccess = function (data) {
   $('#message').text('Show Succeeded')
-  console.log(data)
+  console.table(data)
+  const showRoutesHtml = indexRoutesTemplate({ routes: data })
+  $('#newcontent').html('')
+  $('#newcontent').append(showRoutesHtml)
 }
 
 const routeShowFailure = function (error) {
