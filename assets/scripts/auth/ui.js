@@ -17,7 +17,6 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log(store.user)
   // $('.init').css('visibility', 'visible')
   // $('.board, .instructions').css('visibility', 'hidden')
   // $('.maincontent').css('display', 'flex')
