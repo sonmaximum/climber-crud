@@ -32,6 +32,25 @@ const routeDeleteFailure = function (error) {
   console.log(error)
 }
 
+const routeCreateSuccess = function (data) {
+  $('#message').text('Create Succeeded')
+  console.log(data)
+}
+
+const routeCreateFailure = function (error) {
+  $('#message').text('Create Failed')
+  console.log(error)
+}
+const routeUpdateSuccess = function (data) {
+  $('#message').text('Update Succeeded')
+  console.log(data)
+}
+
+const routeUpdateFailure = function (error) {
+  $('#message').text('Update Failed')
+  console.log(error)
+}
+
 module.exports = {
   store,
   routeIndexSuccess,
@@ -39,5 +58,9 @@ module.exports = {
   routeShowSuccess,
   routeShowFailure,
   routeDeleteSuccess,
-  routeDeleteFailure
+  routeDeleteFailure,
+  routeCreateSuccess,
+  routeCreateFailure,
+  routeUpdateSuccess,
+  routeUpdateFailure
 }
