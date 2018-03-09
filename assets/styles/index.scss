@@ -55,3 +55,7 @@ h1 {
 .maincontent {
   z-index: 2;
 }
+
+.hide-when-signed-out {
+  display: none;
+}
