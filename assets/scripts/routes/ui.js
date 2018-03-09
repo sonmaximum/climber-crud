@@ -167,6 +167,7 @@ const routeMyShowByTypeFailure = function (error) {
   $('#newcontent').html('')
   console.log(error)
 }
+
 const routeAttemptedSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
@@ -255,6 +256,94 @@ const routeProjectFailure = function (error) {
   $('#newcontent').html('')
   console.log(error)
 }
+const routeNotAttemptedSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-attempted Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeNotAttemptedFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-attempted Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
+const routeNotCompletedSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-completed Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeNotCompletedFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-completed Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
+const routeNotSentSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-sent Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeNotSentFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-sent Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
+const routeNotProjectSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-projects Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeNotProjectFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show non-projects Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
 
 module.exports = {
   store,
@@ -281,5 +370,13 @@ module.exports = {
   routeSentSuccess,
   routeSentFailure,
   routeProjectSuccess,
-  routeProjectFailure
+  routeProjectFailure,
+  routeNotAttemptedSuccess,
+  routeNotAttemptedFailure,
+  routeNotCompletedSuccess,
+  routeNotCompletedFailure,
+  routeNotSentSuccess,
+  routeNotSentFailure,
+  routeNotProjectSuccess,
+  routeNotProjectFailure
 }

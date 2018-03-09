@@ -114,13 +114,13 @@ const routeMyIndex = function () {
   })
 }
 
-const routeStatusBools = function (route) {
+const routeStatusBools = function (route, bool) {
   token = ''
   if (store.user) {
     token = store.user.token
   }
   return $.ajax({
-    url: config.apiOrigin + '/routes/' + route,
+    url: config.apiOrigin + '/routes/' + route + bool,
     method: 'GET',
     headers: {
       contentType: 'application/json',

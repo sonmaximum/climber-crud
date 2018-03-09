@@ -74,30 +74,58 @@ const onRouteMyIndex = function (event) {
 
 const onRouteAttempted = function (event) {
   event.preventDefault()
-  api.routeStatusBools('attempted')
+  api.routeStatusBools('attempted/', 1)
     .then(ui.routeAttemptedSuccess)
     .catch(ui.routeAttemptedFailure)
 }
 
 const onRouteCompleted = function (event) {
   event.preventDefault()
-  api.routeStatusBools('completed')
+  api.routeStatusBools('completed/', 1)
     .then(ui.routeCompletedSuccess)
     .catch(ui.routeCompletedFailure)
 }
 
 const onRouteSent = function (event) {
   event.preventDefault()
-  api.routeStatusBools('sent')
+  api.routeStatusBools('sent/', 1)
     .then(ui.routeSentSuccess)
     .catch(ui.routeSentFailure)
 }
 
 const onRouteProject = function (event) {
   event.preventDefault()
-  api.routeStatusBools('projects')
+  api.routeStatusBools('projects/', 1)
     .then(ui.routeProjectSuccess)
     .catch(ui.routeProjectFailure)
+}
+
+const onRouteNotAttempted = function (event) {
+  event.preventDefault()
+  api.routeStatusBools('attempted/', 0)
+    .then(ui.routeNotAttemptedSuccess)
+    .catch(ui.routeNotAttemptedFailure)
+}
+
+const onRouteNotCompleted = function (event) {
+  event.preventDefault()
+  api.routeStatusBools('completed/', 0)
+    .then(ui.routeNotCompletedSuccess)
+    .catch(ui.routeNotCompletedFailure)
+}
+
+const onRouteNotSent = function (event) {
+  event.preventDefault()
+  api.routeStatusBools('sent/', 0)
+    .then(ui.routeNotSentSuccess)
+    .catch(ui.routeNotSentFailure)
+}
+
+const onRouteNotProject = function (event) {
+  event.preventDefault()
+  api.routeStatusBools('projects/', 0)
+    .then(ui.routeNotProjectSuccess)
+    .catch(ui.routeNotProjectFailure)
 }
 
 const addHandlers = () => {
@@ -113,6 +141,10 @@ const addHandlers = () => {
   $('#route-completed-form').on('submit', onRouteCompleted)
   $('#route-sent-form').on('submit', onRouteSent)
   $('#route-project-form').on('submit', onRouteProject)
+  $('#route-not-attempted-form').on('submit', onRouteNotAttempted)
+  $('#route-not-completed-form').on('submit', onRouteNotCompleted)
+  $('#route-not-sent-form').on('submit', onRouteNotSent)
+  $('#route-not-project-form').on('submit', onRouteNotProject)
 }
 
 module.exports = {
