@@ -82,7 +82,14 @@
               <input type="text" name="route[name]" placeholder="Route Name Here">
               <input type="text" name="route[rating]" placeholder="Route Rating Here">
               <input type="text" name="route[location]" placeholder="Route Location Here">
-              <input type="text" name="route[route_type]" placeholder="Route Type Here">
+              <select name="route[route_type]" form="route-create-form">
+                <option value=undefined selected disabled hidden>Route Type</option>
+                <option value="Boulder">Boulder</option>
+                <option value="Top Rope">Top Rope</option>
+                <option value="Lead">Lead</option>
+                <option value="Sport">Sport</option>
+                <option value="Trad.">Trad.</option>
+              </select>
               <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
               Outdoors or Gym:
               <input type="radio" name="route[outdoors]" value=true >Outdoors
@@ -112,7 +119,14 @@
               <input type="text" name="route[name]" placeholder="Route Name Here">
               <input type="text" name="route[rating]" placeholder="Route Rating Here">
               <input type="text" name="route[location]" placeholder="Route Location Here">
-              <input type="text" name="route[route_type]" placeholder="Route Type Here">
+              <select name="route[route_type]" form="route-update-form">
+                <option value=undefined selected disabled hidden>Route Type</option>
+                <option value="Boulder">Boulder</option>
+                <option value="Top Rope">Top Rope</option>
+                <option value="Lead">Lead</option>
+                <option value="Sport">Sport</option>
+                <option value="Trad.">Trad.</option>
+              </select>
               <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
               Outdoors or Gym:
               <input type="radio" name="route[outdoors]" value=true >Outdoors
