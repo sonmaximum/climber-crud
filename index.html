@@ -73,6 +73,72 @@
               </fieldset>
             </form>
 
+            <form id="route-show-by-type-form" class="border">
+              <fieldset>
+                <legend>Get Routes by Type</legend>
+                <select name="route[route_type]" form="route-show-by-type-form" required>
+                  <option value="" selected disabled hidden>Route Type</option>
+                  <option value="0">Boulder</option>
+                  <option value="1">Top Rope</option>
+                  <option value="2">Lead</option>
+                  <option value="3">Sport</option>
+                  <option value="4">Trad.</option>
+                </select>
+                  <input type="submit" value="Get Route by Type">
+              </fieldset>
+            </form>
+
+            <form id="route-my-index-form" class="border">
+              <fieldset>
+                <legend>Get MY Routes</legend>
+                <input type="submit" value="Get All Routes">
+              </fieldset>
+            </form>
+
+
+            <form id="route-my-show-by-type-form" class="border">
+              <fieldset>
+                <legend>Get MY Routes by Type</legend>
+                <select name="route[route_type]" form="route-my-show-by-type-form" required>
+                  <option value="" selected disabled hidden>Route Type</option>
+                  <option value="0">Boulder</option>
+                  <option value="1">Top Rope</option>
+                  <option value="2">Lead</option>
+                  <option value="3">Sport</option>
+                  <option value="4">Trad.</option>
+                </select>
+                  <input type="submit" value="Get Route by Type">
+              </fieldset>
+            </form>
+
+            <form id="route-attempted-form" class="border">
+              <fieldset>
+                <legend>Get Attempted Routes</legend>
+                <input type="submit" value="Get Attempted Routes">
+              </fieldset>
+            </form>
+
+            <form id="route-completed-form" class="border">
+              <fieldset>
+                <legend>Get Completed Routes</legend>
+                <input type="submit" value="Get Completed Routes">
+              </fieldset>
+            </form>
+
+            <form id="route-sent-form" class="border">
+              <fieldset>
+                <legend>Get Sent Routes</legend>
+                <input type="submit" value="Get Sent Routes">
+              </fieldset>
+            </form>
+
+            <form id="route-project-form" class="border">
+              <fieldset>
+                <legend>Get Projects</legend>
+                <input type="submit" value="Get Projects">
+              </fieldset>
+            </form>
+
             <form id="route-delete-form" class="border">
               <fieldset>
                 <legend>Delete One Route</legend>
@@ -87,13 +153,13 @@
                 <input type="text" name="route[name]" placeholder="Route Name Here">
                 <input type="text" name="route[rating]" placeholder="Route Rating Here">
                 <input type="text" name="route[location]" placeholder="Route Location Here">
-                <select name="route[route_type]" form="route-create-form">
-                  <option value=undefined selected disabled hidden>Route Type</option>
-                  <option value="Boulder">Boulder</option>
-                  <option value="Top Rope">Top Rope</option>
-                  <option value="Lead">Lead</option>
-                  <option value="Sport">Sport</option>
-                  <option value="Trad.">Trad.</option>
+                <select name="route[route_type]" form="route-create-form" required>
+                  <option value="" selected disabled hidden>Route Type</option>
+                  <option value="0">Boulder</option>
+                  <option value="1">Top Rope</option>
+                  <option value="2">Lead</option>
+                  <option value="3">Sport</option>
+                  <option value="4">Trad.</option>
                 </select>
                 <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
                 Outdoors or Gym:
@@ -125,12 +191,12 @@
                 <input type="text" name="route[rating]" placeholder="Route Rating Here">
                 <input type="text" name="route[location]" placeholder="Route Location Here">
                 <select name="route[route_type]" form="route-update-form">
-                  <option value=undefined selected disabled hidden>Route Type</option>
-                  <option value="Boulder">Boulder</option>
-                  <option value="Top Rope">Top Rope</option>
-                  <option value="Lead">Lead</option>
-                  <option value="Sport">Sport</option>
-                  <option value="Trad.">Trad.</option>
+                  <option value="" selected disabled hidden>Route Type</option>
+                  <option value="0">Boulder</option>
+                  <option value="1">Top Rope</option>
+                  <option value="2">Lead</option>
+                  <option value="3">Sport</option>
+                  <option value="4">Trad.</option>
                 </select>
                 <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
                 Outdoors or Gym:

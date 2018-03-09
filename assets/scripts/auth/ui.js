@@ -3,14 +3,16 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-up-success').modal('show')
   $('#message').text('Sign up succeeded')
 }
 
 const signUpFailure = function (error) {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-up-failure').modal('show')
   $('#message').text('Sign up failed')
@@ -24,7 +26,8 @@ const signInSuccess = function (data) {
   // $('.maincontent').css('display', 'flex')
   // $('.hidewhenloggedin').hide()
   // $('#username').text(data.user.email)
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Sign in succeeded')
   $('.hide-when-signed-in').hide()
@@ -33,7 +36,8 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-in-failure').modal('show')
   $('#message').text('Sign in failed')
@@ -41,14 +45,16 @@ const signInFailure = function (error) {
 }
 
 const changePasswordSuccess = function () {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#change-password-success').modal('show')
   $('#message').text('CPW suceeded')
 }
 
 const changePasswordFailure = function (error) {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#change-password-failure').modal('show')
   store.error = error
@@ -60,7 +66,8 @@ const signOutSuccess = function () {
   // $('.init, .board, .instructions, .user-feedback-message').css('visibility', 'hidden')
   // $('.maincontent').css('display', 'none')
   $('#message').text('Sign out succeeded')
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('.hide-when-signed-out').hide()
   $('.hide-when-signed-in').show()
@@ -68,7 +75,8 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (error) {
-  $('form').find('input:not([type="submit"])').val('')
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#generic-failure').modal('show')
   $('#message').text('Sign out failed')

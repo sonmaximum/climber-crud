@@ -25,8 +25,6 @@ const routeShow = function (data) {
   if (store.user) {
     token = store.user.token
   }
-  console.log(data)
-  console.log(token)
   return $.ajax({
     url: config.apiOrigin + '/routes/' + data.route.id,
     method: 'GET',
@@ -71,10 +69,74 @@ const routeUpdate = function (data) {
   })
 }
 
+const routeShowByType = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/routes/type/' + data.route.route_type,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const routeMyShowByType = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/myroutes/type/' + data.route.route_type,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const routeMyIndex = function () {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/myroutes',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const routeStatusBools = function (route) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/routes/' + route,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 module.exports = {
   routeIndex,
   routeShow,
   routeDelete,
   routeCreate,
-  routeUpdate
+  routeUpdate,
+  routeShowByType,
+  routeMyShowByType,
+  routeMyIndex,
+  routeStatusBools
 }
