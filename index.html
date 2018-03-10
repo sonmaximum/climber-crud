@@ -247,6 +247,57 @@
                 <input type="submit" value="Update Route">
               </fieldset>
             </form>
+
+            <form id="location-index-form" class="border">
+              <fieldset>
+                <legend>Get All Locations</legend>
+                <input type="submit" value="Get All Locations">
+              </fieldset>
+            </form>
+
+            <form id="location-show-form" class="border">
+              <fieldset>
+                <legend>Get One Location</legend>
+                  <input type="text" name="location[id]" placeholder="Location ID Here">
+                  <input type="submit" value="Get a Location">
+              </fieldset>
+            </form>
+
+            <form id="location-delete-form" class="border">
+              <fieldset>
+                <legend>Delete One Location</legend>
+                  <input type="text" name="location[id]" placeholder="Location ID Here">
+                  <input type="submit" value="Delete a Location">
+              </fieldset>
+            </form>
+
+            <form id="location-create-form" class="border">
+              <fieldset>
+                <legend>Create One Location</legend>
+                <input type="text" name="location[name]" placeholder="Location Name Here">
+                <input type="text" name="location[address]" placeholder="Location Address Here"><br>
+                Outdoors or Gym:
+                <input type="radio" name="location[outdoors]" value=true >Outdoors
+                <input type="radio" name="location[outdoors]" value=false >Gym<br>
+                <input type="text" name="location[comments]" placeholder="Location Comments Here">
+                <input type="submit" value="Create Location">
+              </fieldset>
+            </form>
+
+            <form id="location-update-form" class="border">
+              <fieldset>
+                <legend>Update One Location</legend>
+                <input type="text" name="location[id]" placeholder="Location ID Here">
+                <input type="text" name="location[name]" placeholder="Location Name Here">
+                <input type="text" name="location[address]" placeholder="Location Address Here"><br>
+                Outdoors or Gym:
+                <input type="radio" name="location[outdoors]" value=true >Outdoors
+                <input type="radio" name="location[outdoors]" value=false >Gym<br>
+                <input type="text" name="location[comments]" placeholder="Location Comments Here">
+                <input type="submit" value="Update Location">
+              </fieldset>
+            </form>
+
             <p id='newcontent'></p>
           </div>
         </div>

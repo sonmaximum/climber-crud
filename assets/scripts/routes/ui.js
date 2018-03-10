@@ -2,8 +2,6 @@
 
 const indexRoutesTemplate = require('../templates/route-listing.handlebars')
 
-const store = require('../store')
-
 const routeTypeArray = ['Boulder', 'Top Rope', 'Lead', 'Sport', 'Trad.']
 
 const routeIndexSuccess = function (data) {
@@ -55,6 +53,7 @@ const routeDeleteSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Delete Succeeded')
+  $('#newcontent').html('')
   console.log(data)
 }
 
@@ -72,6 +71,7 @@ const routeCreateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Create Succeeded')
+  $('#newcontent').html('')
   console.log(data)
 }
 
@@ -88,6 +88,7 @@ const routeUpdateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Update Succeeded')
+  $('#newcontent').html('')
   console.log(data)
 }
 
@@ -346,7 +347,6 @@ const routeNotProjectFailure = function (error) {
 }
 
 module.exports = {
-  store,
   routeIndexSuccess,
   routeIndexFailure,
   routeShowSuccess,

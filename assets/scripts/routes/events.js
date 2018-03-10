@@ -148,6 +148,5 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers,
-  getFormFields
+  addHandlers
 }

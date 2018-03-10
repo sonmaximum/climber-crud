@@ -1,0 +1,15 @@
+
+{{#each locations as |location|}}
+
+  <h3 data-id="{{location.id}}"> Name: {{location.name}}</h3>
+  <div>
+    Address:  {{location.address}}
+    {{#if location.outdoors}}
+      Outdoors
+    {{else}}
+      Gym
+    {{/if}}
+    Comments:  {{location.comments}}
+  </div>
+
+{{/each}}
