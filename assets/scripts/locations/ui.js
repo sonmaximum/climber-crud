@@ -20,6 +20,24 @@ const locationIndexFailure = function (error) {
   $('#newcontent').html('')
   console.log(error)
 }
+const locationMaintainedIndexSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Index of Maintained Locations Succeeded')
+  const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexLocationsHtml)
+}
+
+const locationMaintainedIndexFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Index of Maintained Locations Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
 
 const locationShowSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
@@ -98,6 +116,8 @@ const locationUpdateFailure = function (error) {
 module.exports = {
   locationIndexSuccess,
   locationIndexFailure,
+  locationMaintainedIndexSuccess,
+  locationMaintainedIndexFailure,
   locationShowSuccess,
   locationShowFailure,
   locationDeleteSuccess,

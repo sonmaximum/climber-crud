@@ -20,6 +20,21 @@ const locationIndex = function () {
   })
 }
 
+const locationMaintainedIndex = function () {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/maintainedlocations',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const locationShow = function (data) {
   token = ''
   if (store.user) {
@@ -71,6 +86,7 @@ const locationUpdate = function (data) {
 
 module.exports = {
   locationIndex,
+  locationMaintainedIndex,
   locationShow,
   locationDelete,
   locationCreate,
