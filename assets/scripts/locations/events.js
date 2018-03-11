@@ -1,6 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
+const locationDropdown = require('./locationdropdown.js')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -34,6 +35,7 @@ const onLocationDelete = function (event) {
   console.log(data)
   api.locationDelete(data)
     .then(ui.locationDeleteSuccess)
+    .then(locationDropdown)
     .catch(ui.locationDeleteFailure)
 }
 
@@ -43,6 +45,7 @@ const onLocationCreate = function (event) {
   console.log(data)
   api.locationCreate(data)
     .then(ui.locationCreateSuccess)
+    .then(locationDropdown)
     .catch(ui.locationCreateFailure)
 }
 
@@ -53,6 +56,7 @@ const onLocationUpdate = function (event) {
   api.locationUpdate(data)
     .then(ui.locationUpdateSuccess)
     .catch(ui.locationUpdateFailure)
+    .then(locationDropdown)
 }
 
 const addHandlers = () => {

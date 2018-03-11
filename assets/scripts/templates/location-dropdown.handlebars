@@ -1,0 +1,6 @@
+<select name="route[location]" required>
+  <option value="" selected disabled hidden>Location</option>
+  {{#each locations as |location|}}
+  <option value="{{location.id}}">{{location.name}}</option>
+  {{/each}}
+</select>

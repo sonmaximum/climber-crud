@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const locationDropdown = require('../locations/locationdropdown.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -15,7 +16,8 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-
+  console.log('ld is', locationDropdown)
+  locationDropdown()
   const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
