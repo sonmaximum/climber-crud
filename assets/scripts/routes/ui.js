@@ -32,7 +32,6 @@ const routeShowSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Succeeded')
-  console.log(data.route.route_type)
   data.route.route_type = routeTypeArray[data.route.route_type]
   const showRoutesHtml = indexRoutesTemplate({ routes: data })
   $('#newcontent').html('')
@@ -44,6 +43,9 @@ const routeShowFailure = function (error) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Failed')
+  if (error.status === 404) {
+    $('#message').text('No Matches Found!')
+  }
   $('#newcontent').html('')
   console.log(error)
 }
