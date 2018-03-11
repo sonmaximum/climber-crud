@@ -123,6 +123,30 @@ const routeShowByTypeFailure = function (error) {
   $('#newcontent').html('')
   console.log(error)
 }
+
+const routeShowByLocationSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show By Location Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeShowByLocationFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('Show By Location Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
+
 const routeMyIndexSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
@@ -161,6 +185,29 @@ const routeMyShowByTypeSuccess = function (data) {
 }
 
 const routeMyShowByTypeFailure = function (error) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('My Routes By Type Failed')
+  $('#newcontent').html('')
+  console.log(error)
+}
+
+const routeMyShowByLocationSuccess = function (data) {
+  $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
+  $('input:radio').prop('checked', false)
+  $('select').each(function () { this.selectedIndex = 0 })
+  $('#message').text('My Routes By Type Succeeded')
+  console.table(data.routes)
+  data.routes.forEach(function (route) {
+    route.route_type = routeTypeArray[route.route_type]
+  })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
+  $('#newcontent').html('')
+  $('#newcontent').append(indexRoutesHtml)
+}
+
+const routeMyShowByLocationFailure = function (error) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
@@ -361,6 +408,10 @@ module.exports = {
   routeShowByTypeFailure,
   routeMyShowByTypeSuccess,
   routeMyShowByTypeFailure,
+  routeShowByLocationSuccess,
+  routeShowByLocationFailure,
+  routeMyShowByLocationSuccess,
+  routeMyShowByLocationFailure,
   routeMyIndexSuccess,
   routeMyIndexFailure,
   routeAttemptedSuccess,

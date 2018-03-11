@@ -35,6 +35,21 @@ const locationMaintainedIndex = function () {
   })
 }
 
+const locationClimbedAtIndex = function () {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/mylocations',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const locationShow = function (data) {
   token = ''
   if (store.user) {
@@ -90,5 +105,6 @@ module.exports = {
   locationShow,
   locationDelete,
   locationCreate,
-  locationUpdate
+  locationUpdate,
+  locationClimbedAtIndex
 }

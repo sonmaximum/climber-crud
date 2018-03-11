@@ -20,6 +20,13 @@ const onLocationMaintainedIndex = function (event) {
     .catch(ui.locationMaintainedIndexFailure)
 }
 
+const onLocationClimbedAtIndex = function (event) {
+  event.preventDefault()
+  api.locationClimbedAtIndex()
+    .then(ui.locationClimbedAtIndexSuccess)
+    .catch(ui.locationClimbedAtIndexFailure)
+}
+
 const onLocationShow = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -66,6 +73,7 @@ const addHandlers = () => {
   $('#location-create-form').on('submit', onLocationCreate)
   $('#location-update-form').on('submit', onLocationUpdate)
   $('#location-maintained-index-form').on('submit', onLocationMaintainedIndex)
+  $('#location-climbed-at-index-form').on('submit', onLocationClimbedAtIndex)
 }
 
 module.exports = {

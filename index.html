@@ -84,14 +84,22 @@
                   <option value="3">Sport</option>
                   <option value="4">Trad.</option>
                 </select>
-                  <input type="submit" value="Get Route by Type">
+                  <input type="submit" value="Get Routes by Type">
+              </fieldset>
+            </form>
+
+            <form id="route-show-by-location-form" class="border">
+              <fieldset>
+                <legend>Get Routes by Location</legend>
+                <span class="location-dropdown"> </span>
+                <input type="submit" value="Get Routes by Location">
               </fieldset>
             </form>
 
             <form id="route-my-index-form" class="border">
               <fieldset>
                 <legend>Get MY Routes</legend>
-                <input type="submit" value="Get All Routes">
+                <input type="submit" value="Get All MY Routes">
               </fieldset>
             </form>
 
@@ -107,9 +115,18 @@
                   <option value="3">Sport</option>
                   <option value="4">Trad.</option>
                 </select>
-                  <input type="submit" value="Get Route by Type">
+                  <input type="submit" value="Get MY Routes by Type">
               </fieldset>
             </form>
+
+            <form id="route-my-show-by-location-form" class="border">
+              <fieldset>
+                <legend>Get MY Routes by Location</legend>
+                <span class="location-dropdown"> </span>
+                <input type="submit" value="Get MY Routes by Location">
+              </fieldset>
+            </form>
+
 
             <form id="route-attempted-form" class="border">
               <fieldset>
@@ -190,9 +207,6 @@
                   <option value="4">Trad.</option>
                 </select>
                 <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                Outdoors or Gym:
-                <input type="radio" name="route[outdoors]" value=true >Outdoors
-                <input type="radio" name="route[outdoors]" value=false >Gym<br>
                 Attempted?
                 <input type="radio" name="route[attempted]" value=true >Yes
                 <input type="radio" name="route[attempted]" value=false >No<br>
@@ -227,9 +241,6 @@
                   <option value="4">Trad.</option>
                 </select>
                 <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                Outdoors or Gym:
-                <input type="radio" name="route[outdoors]" value=true >Outdoors
-                <input type="radio" name="route[outdoors]" value=false >Gym<br>
                 Attempted?
                 <input type="radio" name="route[attempted]" value=true >Yes
                 <input type="radio" name="route[attempted]" value=false >No<br>
@@ -259,6 +270,13 @@
               <fieldset>
                 <legend>Get Locations I maintain</legend>
                 <input type="submit" value="Get Maintained Locations">
+              </fieldset>
+            </form>
+
+            <form id="location-climbed-at-index-form" class="border">
+              <fieldset>
+                <legend>Get Locations I've climbed at</legend>
+                <input type="submit" value="Get Climbed at Locations">
               </fieldset>
             </form>
 

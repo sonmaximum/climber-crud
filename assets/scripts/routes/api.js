@@ -99,6 +99,36 @@ const routeMyShowByType = function (data) {
   })
 }
 
+const routeShowByLocation = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/routes/location/' + data.route.location_id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const routeMyShowByLocation = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiOrigin + '/myroutes/location/' + data.route.location_id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const routeMyIndex = function () {
   token = ''
   if (store.user) {
@@ -137,6 +167,8 @@ module.exports = {
   routeUpdate,
   routeShowByType,
   routeMyShowByType,
+  routeShowByLocation,
+  routeMyShowByLocation,
   routeMyIndex,
   routeStatusBools
 }

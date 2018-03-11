@@ -60,6 +60,24 @@ const onRouteMyShowByType = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   console.log(data)
+  api.routeMyShowByLocation(data)
+    .then(ui.routeMyShowByLocationSuccess)
+    .catch(ui.routeMyShowByLocationFailure)
+}
+
+const onRouteShowByLocation = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.routeShowByLocation(data)
+    .then(ui.routeShowByLocationSuccess)
+    .catch(ui.routeShowByLocationFailure)
+}
+
+const onRouteMyShowByLocation = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
   api.routeMyShowByType(data)
     .then(ui.routeMyShowByTypeSuccess)
     .catch(ui.routeMyShowByTypeFailure)
@@ -136,6 +154,8 @@ const addHandlers = () => {
   $('#route-update-form').on('submit', onRouteUpdate)
   $('#route-show-by-type-form').on('submit', onRouteShowByType)
   $('#route-my-show-by-type-form').on('submit', onRouteMyShowByType)
+  $('#route-show-by-location-form').on('submit', onRouteShowByLocation)
+  $('#route-my-show-by-location-form').on('submit', onRouteMyShowByLocation)
   $('#route-my-index-form').on('submit', onRouteMyIndex)
   $('#route-attempted-form').on('submit', onRouteAttempted)
   $('#route-completed-form').on('submit', onRouteCompleted)

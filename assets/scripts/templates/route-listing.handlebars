@@ -4,9 +4,9 @@
   <h3 data-id="{{route.id}}"> Name: {{route.name}}</h3>
   <div>
     Rating:  {{route.rating}}
-    Location:  {{route.location}}
+    Location:  {{route.location.name}}
     Type:  {{route.route_type}}
-    {{#if route.outdoors}}
+    {{#if route.location.outdoors}}
       Outdoors
     {{else}}
       Gym
