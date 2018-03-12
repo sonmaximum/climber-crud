@@ -1,36 +1,34 @@
 
 {{#each routes as |route|}}
 
-  <h3 data-id="{{route.id}}"> Name: {{route.name}}</h3>
+  <h4 class='route-name' data-id="{{route.id}}">{{route.name}}</h4>
+  <small>Logged by:  {{route.user.email}}<br></small>
   <div>
-    Rating:  {{route.rating}}
-    Location:  {{route.location.name}}
-    Type:  {{route.route_type}}
+
+    {{route.location.name}}
     {{#if route.location.outdoors}}
-      Outdoors
+    (Outdoors)
     {{else}}
-      Gym
-    {{/if}}
-    {{#if route.attempted}}
-      Attempted
-    {{/if}}
-    {{#if route.completed}}
-      Completed
+    (Gym)
+    {{/if}}<br>
+    Rating:  {{route.rating}}<br>
+    Color:  {{route.color}} <br>
+    Type:  {{route.route_type}}<br>
+    {{#if route.project}}
+    This is a project!<br>
     {{/if}}
     {{#if route.sent}}
-      Sent
+    Sent!<br>
+    {{else if route.completed}}
+    Completed with {{route.hangs}} hangs<br>
+    {{else if route.attempted}}
+      Attempted with {{route.hangs}} hangs<br>
     {{/if}}
-    {{#if route.project}}
-      Project
-    {{/if}}
-    Hangs: {{route.hangs}}
-    Color:  {{route.color}}
-    Comments:  {{route.comments}}
-    Owner:  {{route.user.email}}
+    <strong>Comments:</strong>  {{route.comments}}
   </div>
 
 {{else}}
 
-<h3> No matches found</h3>
+<h2> No matches found</h2>
 
 {{/each}}

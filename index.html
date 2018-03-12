@@ -19,27 +19,26 @@
             <h2>The Climbing Route User Database</h2>
           </header>
 
-          <p id="message"></p>
+          <!-- <p id="message"></p> -->
 
 
           <div class='hide-when-signed-in'>
             <div class='sign-in-box'>
-              <form id="sign-up-form" class="border">
-                <fieldset>
-                  <legend>Sign up!</legend>
-                  <input type="text" name="credentials[email]" placeholder="Email">
-                  <input type="password" name="credentials[password]" placeholder="Password">
-                  <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                  <input type="submit" value="Sign up!">
-                </fieldset>
-              </form>
-
               <form id="sign-in-form" class="border">
                 <fieldset>
                   <legend>Sign in!</legend>
-                  <input type="text" name="credentials[email]" placeholder="Email">
-                  <input type="password" name="credentials[password]" placeholder="Password">
-                  <input type="submit" value="Sign in!">
+                  <input required type="text" name="credentials[email]" placeholder="Email">
+                  <input required type="password" name="credentials[password]" placeholder="Password">
+                  <input required type="submit" value="Sign in!">
+                </fieldset>
+              </form>
+              <form id="sign-up-form" class="border">
+                <fieldset>
+                  <legend>Sign up!</legend>
+                  <input required type="text" name="credentials[email]" placeholder="Email">
+                  <input required type="password" name="credentials[password]" placeholder="Password">
+                  <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                  <input required type="submit" value="Sign up!">
                 </fieldset>
               </form>
             </div>
@@ -49,290 +48,301 @@
             <div class="hide-when-signed-out">
               <div class="middle-content">
                 <div class="left-side column">
-                  <form id="sign-out-form" class="border">
-                    <fieldset>
-                      <legend>Sign Out!</legend>
-                      <input type="submit" value="Sign out!">
-                    </fieldset>
-                  </form>
 
-                  <form id="change-password-form" class="border">
-                    <fieldset>
-                      <legend>Change Password!</legend>
-                      <input type="password" name="passwords[old]" placeholder="Old Password">
-                      <input type="password" name="passwords[new]" placeholder="New Password">
-                      <input type="submit" value="Change Password!">
-                    </fieldset>
-                  </form>
+                  <button id='user-actions-button'>User actions</button>
+                  <button id='route-actions-button'>Route actions</button>
+                  <button id='location-actions-button'>Location actions</button>
+                  <br>
+                  <div class='user-actions'>
 
-                  <form id="route-index-form" class="border">
-                    <fieldset>
-                      <legend>Get All Routes</legend>
-                      <input type="submit" value="Get All Routes">
-                    </fieldset>
-                  </form>
+                    <form id="change-password-form" class="border">
+                      <fieldset>
+                        <legend>Change Password!</legend>
+                        <input required type="password" name="passwords[old]" placeholder="Old Password">
+                        <input required type="password" name="passwords[new]" placeholder="New Password">
+                        <input required type="submit" value="Change Password!">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-show-form" class="border">
-                    <fieldset>
-                      <legend>Get One Route</legend>
-                        <input type="text" name="route[id]" placeholder="Route ID Here">
-                        <input type="submit" value="Get a Route">
-                    </fieldset>
-                  </form>
+                    <form id="sign-out-form" class="border">
+                      <fieldset>
+                        <legend>Sign Out!</legend>
+                        <input required type="submit" value="Sign out!">
+                      </fieldset>
+                    </form>
+                  </div>
 
-                  <form id="route-show-by-type-form" class="border">
-                    <fieldset>
-                      <legend>Get Routes by Type</legend>
-                      <select name="route[route_type]" form="route-show-by-type-form" required>
-                        <option value="" selected disabled hidden>Route Type</option>
-                        <option value="0">Boulder</option>
-                        <option value="1">Top Rope</option>
-                        <option value="2">Lead</option>
-                        <option value="3">Sport</option>
-                        <option value="4">Trad.</option>
-                      </select>
-                        <input type="submit" value="Get Routes by Type">
-                    </fieldset>
-                  </form>
+                  <div class = 'route-actions'>
+                    <form id="route-index-form" class="border">
+                      <fieldset>
+                        <legend>Get All Routes</legend>
+                        <input required type="submit" value="Get All Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-show-by-location-form" class="border">
-                    <fieldset>
-                      <legend>Get Routes by Location</legend>
-                      <span class="location-dropdown"> </span>
-                      <input type="submit" value="Get Routes by Location">
-                    </fieldset>
-                  </form>
+                    <form id="route-show-form" class="border">
+                      <fieldset>
+                        <legend>Get One Route</legend>
+                          <input required type="text" name="route[id]" placeholder="Route ID Here">
+                          <input required type="submit" value="Get a Route">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-my-index-form" class="border">
-                    <fieldset>
-                      <legend>Get MY Routes</legend>
-                      <input type="submit" value="Get All MY Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-show-by-type-form" class="border">
+                      <fieldset>
+                        <legend>Get Routes by Type</legend>
+                        <select name="route[route_type]" form="route-show-by-type-form" required>
+                          <option value="" selected disabled hidden>Route Type</option>
+                          <option value="0">Boulder</option>
+                          <option value="1">Top Rope</option>
+                          <option value="2">Lead</option>
+                          <option value="3">Sport</option>
+                          <option value="4">Trad.</option>
+                        </select>
+                          <input required type="submit" value="Get Routes by Type">
+                      </fieldset>
+                    </form>
 
+                    <form id="route-show-by-location-form" class="border">
+                      <fieldset>
+                        <legend>Get Routes by Location</legend>
+                        <span class="location-dropdown"> </span>
+                        <input required type="submit" value="Get Routes by Location">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-my-show-by-type-form" class="border">
-                    <fieldset>
-                      <legend>Get MY Routes by Type</legend>
-                      <select name="route[route_type]" form="route-my-show-by-type-form" required>
-                        <option value="" selected disabled hidden>Route Type</option>
-                        <option value="0">Boulder</option>
-                        <option value="1">Top Rope</option>
-                        <option value="2">Lead</option>
-                        <option value="3">Sport</option>
-                        <option value="4">Trad.</option>
-                      </select>
-                        <input type="submit" value="Get MY Routes by Type">
-                    </fieldset>
-                  </form>
-
-                  <form id="route-my-show-by-location-form" class="border">
-                    <fieldset>
-                      <legend>Get MY Routes by Location</legend>
-                      <span class="location-dropdown"> </span>
-                      <input type="submit" value="Get MY Routes by Location">
-                    </fieldset>
-                  </form>
+                    <form id="route-my-index-form" class="border">
+                      <fieldset>
+                        <legend>Get MY Routes</legend>
+                        <input required type="submit" value="Get All MY Routes">
+                      </fieldset>
+                    </form>
 
 
-                  <form id="route-attempted-form" class="border">
-                    <fieldset>
-                      <legend>Get Attempted Routes</legend>
-                      <input type="submit" value="Get Attempted Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-my-show-by-type-form" class="border">
+                      <fieldset>
+                        <legend>Get MY Routes by Type</legend>
+                        <select name="route[route_type]" form="route-my-show-by-type-form" required>
+                          <option value="" selected disabled hidden>Route Type</option>
+                          <option value="0">Boulder</option>
+                          <option value="1">Top Rope</option>
+                          <option value="2">Lead</option>
+                          <option value="3">Sport</option>
+                          <option value="4">Trad.</option>
+                        </select>
+                          <input required type="submit" value="Get MY Routes by Type">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-completed-form" class="border">
-                    <fieldset>
-                      <legend>Get Completed Routes</legend>
-                      <input type="submit" value="Get Completed Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-my-show-by-location-form" class="border">
+                      <fieldset>
+                        <legend>Get MY Routes by Location</legend>
+                        <span class="location-dropdown"> </span>
+                        <input required type="submit" value="Get MY Routes by Location">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-sent-form" class="border">
-                    <fieldset>
-                      <legend>Get Sent Routes</legend>
-                      <input type="submit" value="Get Sent Routes">
-                    </fieldset>
-                  </form>
 
-                  <form id="route-project-form" class="border">
-                    <fieldset>
-                      <legend>Get Projects</legend>
-                      <input type="submit" value="Get Projects">
-                    </fieldset>
-                  </form>
+                    <form id="route-attempted-form" class="border">
+                      <fieldset>
+                        <legend>Get Attempted Routes</legend>
+                        <input required type="submit" value="Get Attempted Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-not-attempted-form" class="border">
-                    <fieldset>
-                      <legend>Get non-attempted Routes</legend>
-                      <input type="submit" value="Get non-attempted Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-completed-form" class="border">
+                      <fieldset>
+                        <legend>Get Completed Routes</legend>
+                        <input required type="submit" value="Get Completed Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-not-completed-form" class="border">
-                    <fieldset>
-                      <legend>Get non-completed Routes</legend>
-                      <input type="submit" value="Get non-completed Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-sent-form" class="border">
+                      <fieldset>
+                        <legend>Get Sent Routes</legend>
+                        <input required type="submit" value="Get Sent Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-not-sent-form" class="border">
-                    <fieldset>
-                      <legend>Get non-sent Routes</legend>
-                      <input type="submit" value="Get non-sent Routes">
-                    </fieldset>
-                  </form>
+                    <form id="route-project-form" class="border">
+                      <fieldset>
+                        <legend>Get Projects</legend>
+                        <input required type="submit" value="Get Projects">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-not-project-form" class="border">
-                    <fieldset>
-                      <legend>Get non-projects</legend>
-                      <input type="submit" value="Get non-projects">
-                    </fieldset>
-                  </form>
+                    <form id="route-not-attempted-form" class="border">
+                      <fieldset>
+                        <legend>Get non-attempted Routes</legend>
+                        <input required type="submit" value="Get non-attempted Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-delete-form" class="border">
-                    <fieldset>
-                      <legend>Delete One Route</legend>
-                      <input type="text" name="route[id]" placeholder="Route ID Here">
-                      <input type="submit" value="Delete Route">
-                    </fieldset>
-                  </form>
+                    <form id="route-not-completed-form" class="border">
+                      <fieldset>
+                        <legend>Get non-completed Routes</legend>
+                        <input required type="submit" value="Get non-completed Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-create-form" class="border">
-                    <fieldset>
-                      <legend>Create One Route</legend>
-                      <input type="text" name="route[name]" placeholder="Route Name Here">
-                      <input type="text" name="route[rating]" placeholder="Route Rating Here">
-                      <span class="location-dropdown"> </span>
-                      <select name="route[route_type]" form="route-create-form" required>
-                        <option value="" selected disabled hidden>Route Type</option>
-                        <option value="0">Boulder</option>
-                        <option value="1">Top Rope</option>
-                        <option value="2">Lead</option>
-                        <option value="3">Sport</option>
-                        <option value="4">Trad.</option>
-                      </select>
-                      <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                      Attempted?
-                      <input type="radio" name="route[attempted]" value=true >Yes
-                      <input type="radio" name="route[attempted]" value=false >No<br>
-                      Completed?
-                      <input type="radio" name="route[completed]" value=true >Yes
-                      <input type="radio" name="route[completed]" value=false >No<br>
-                      Sent?
-                      <input type="radio" name="route[sent]" value=true >Yes
-                      <input type="radio" name="route[sent]" value=false >No<br>
-                      Project?
-                      <input type="radio" name="route[project]" value=true >Yes
-                      <input type="radio" name="route[project]" value=false >No<br>
-                      <input type="number" name="route[hangs]" placeholder="Route Hangs Here">
-                      <input type="text" name="route[comments]" placeholder="Route Comments Here">
-                      <input type="submit" value="Create Route">
-                    </fieldset>
-                  </form>
+                    <form id="route-not-sent-form" class="border">
+                      <fieldset>
+                        <legend>Get non-sent Routes</legend>
+                        <input required type="submit" value="Get non-sent Routes">
+                      </fieldset>
+                    </form>
 
-                  <form id="route-update-form" class="border">
-                    <fieldset>
-                      <legend>Update One Route</legend>
-                      <input type="text" name="route[id]" placeholder="Route ID Here"><br>
-                      <input type="text" name="route[name]" placeholder="Route Name Here">
-                      <input type="text" name="route[rating]" placeholder="Route Rating Here">
-                      <span class="location-dropdown"> </span>
-                      <select name="route[route_type]" form="route-update-form">
-                        <option value="" selected disabled hidden>Route Type</option>
-                        <option value="0">Boulder</option>
-                        <option value="1">Top Rope</option>
-                        <option value="2">Lead</option>
-                        <option value="3">Sport</option>
-                        <option value="4">Trad.</option>
-                      </select>
-                      <input type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                      Attempted?
-                      <input type="radio" name="route[attempted]" value=true >Yes
-                      <input type="radio" name="route[attempted]" value=false >No<br>
-                      Completed?
-                      <input type="radio" name="route[completed]" value=true >Yes
-                      <input type="radio" name="route[completed]" value=false >No<br>
-                      Sent?
-                      <input type="radio" name="route[sent]" value=true >Yes
-                      <input type="radio" name="route[sent]" value=false >No<br>
-                      Project?
-                      <input type="radio" name="route[project]" value=true >Yes
-                      <input type="radio" name="route[project]" value=false >No<br>
-                      <input type="number" name="route[hangs]" placeholder="Route Hangs Here">
-                      <input type="text" name="route[comments]" placeholder="Route Comments Here">
-                      <input type="submit" value="Update Route">
-                    </fieldset>
-                  </form>
+                    <form id="route-not-project-form" class="border">
+                      <fieldset>
+                        <legend>Get non-projects</legend>
+                        <input required type="submit" value="Get non-projects">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-index-form" class="border">
-                    <fieldset>
-                      <legend>Get All Locations</legend>
-                      <input type="submit" value="Get All Locations">
-                    </fieldset>
-                  </form>
+                    <form id="route-delete-form" class="border">
+                      <fieldset>
+                        <legend>Delete One Route</legend>
+                        <input required type="text" name="route[id]" placeholder="Route ID Here">
+                        <input required type="submit" value="Delete Route">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-maintained-index-form" class="border">
-                    <fieldset>
-                      <legend>Get Locations I maintain</legend>
-                      <input type="submit" value="Get Maintained Locations">
-                    </fieldset>
-                  </form>
+                    <form id="route-create-form" class="border">
+                      <fieldset>
+                        <legend>Create One Route</legend>
+                        <input required type="text" name="route[name]" placeholder="Route Name Here">
+                        <input required type="text" name="route[rating]" placeholder="Route Rating Here">
+                        <span class="location-dropdown"> </span>
+                        <select name="route[route_type]" form="route-create-form" required>
+                          <option value="" selected disabled hidden>Route Type</option>
+                          <option value="0">Boulder</option>
+                          <option value="1">Top Rope</option>
+                          <option value="2">Lead</option>
+                          <option value="3">Sport</option>
+                          <option value="4">Trad.</option>
+                        </select>
+                        <input required type="text" name="route[color]" placeholder="Route Color Here"> <br>
+                        Attempted?
+                        <input required type="radio" name="route[attempted]" value=true >Yes
+                        <input required type="radio" name="route[attempted]" value=false >No<br>
+                        Completed?
+                        <input required type="radio" name="route[completed]" value=true >Yes
+                        <input required type="radio" name="route[completed]" value=false >No<br>
+                        Sent?
+                        <input required type="radio" name="route[sent]" value=true >Yes
+                        <input required type="radio" name="route[sent]" value=false >No<br>
+                        Project?
+                        <input required type="radio" name="route[project]" value=true >Yes
+                        <input required type="radio" name="route[project]" value=false >No<br>
+                        <input required type="number" name="route[hangs]" placeholder="Route Hangs Here">
+                        <input required type="text" name="route[comments]" placeholder="Route Comments Here">
+                        <input required type="submit" value="Create Route">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-climbed-at-index-form" class="border">
-                    <fieldset>
-                      <legend>Get Locations I've climbed at</legend>
-                      <input type="submit" value="Get Climbed at Locations">
-                    </fieldset>
-                  </form>
+                    <form id="route-update-form" class="border">
+                      <fieldset>
+                        <legend>Update One Route</legend>
+                        <input required type="text" name="route[id]" placeholder="Route ID Here"><br>
+                        <input required type="text" name="route[name]" placeholder="Route Name Here">
+                        <input required type="text" name="route[rating]" placeholder="Route Rating Here">
+                        <span class="location-dropdown"> </span>
+                        <select name="route[route_type]" form="route-update-form">
+                          <option value="" selected disabled hidden>Route Type</option>
+                          <option value="0">Boulder</option>
+                          <option value="1">Top Rope</option>
+                          <option value="2">Lead</option>
+                          <option value="3">Sport</option>
+                          <option value="4">Trad.</option>
+                        </select>
+                        <input required type="text" name="route[color]" placeholder="Route Color Here"> <br>
+                        Attempted?
+                        <input required type="radio" name="route[attempted]" value=true >Yes
+                        <input required type="radio" name="route[attempted]" value=false >No<br>
+                        Completed?
+                        <input required type="radio" name="route[completed]" value=true >Yes
+                        <input required type="radio" name="route[completed]" value=false >No<br>
+                        Sent?
+                        <input required type="radio" name="route[sent]" value=true >Yes
+                        <input required type="radio" name="route[sent]" value=false >No<br>
+                        Project?
+                        <input required type="radio" name="route[project]" value=true >Yes
+                        <input required type="radio" name="route[project]" value=false >No<br>
+                        <input required type="number" name="route[hangs]" placeholder="Route Hangs Here">
+                        <input required type="text" name="route[comments]" placeholder="Route Comments Here">
+                        <input required type="submit" value="Update Route">
+                      </fieldset>
+                    </form>
+                  </div>
 
-                  <form id="location-show-form" class="border">
-                    <fieldset>
-                      <legend>Get One Location</legend>
-                        <input type="text" name="location[id]" placeholder="Location ID Here">
-                        <input type="submit" value="Get a Location">
-                    </fieldset>
-                  </form>
+                  <div class='location-actions'>
+                    <form id="location-index-form" class="border">
+                      <fieldset>
+                        <legend>Get All Locations</legend>
+                        <input required type="submit" value="Get All Locations">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-delete-form" class="border">
-                    <fieldset>
-                      <legend>Delete One Location</legend>
-                        <input type="text" name="location[id]" placeholder="Location ID Here">
-                        <input type="submit" value="Delete a Location">
-                    </fieldset>
-                  </form>
+                    <form id="location-maintained-index-form" class="border">
+                      <fieldset>
+                        <legend>Get Locations I maintain</legend>
+                        <input required type="submit" value="Get Maintained Locations">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-create-form" class="border">
-                    <fieldset>
-                      <legend>Create One Location</legend>
-                      <input type="text" name="location[name]" placeholder="Location Name Here">
-                      <input type="text" name="location[address]" placeholder="Location Address Here"><br>
-                      Outdoors or Gym:
-                      <input type="radio" name="location[outdoors]" value=true >Outdoors
-                      <input type="radio" name="location[outdoors]" value=false >Gym<br>
-                      <input type="text" name="location[comments]" placeholder="Location Comments Here">
-                      <input type="submit" value="Create Location">
-                    </fieldset>
-                  </form>
+                    <form id="location-climbed-at-index-form" class="border">
+                      <fieldset>
+                        <legend>Get Locations I've climbed at</legend>
+                        <input required type="submit" value="Get Climbed at Locations">
+                      </fieldset>
+                    </form>
 
-                  <form id="location-update-form" class="border">
-                    <fieldset>
-                      <legend>Update One Location</legend>
-                      <input type="text" name="location[id]" placeholder="Location ID Here">
-                      <input type="text" name="location[name]" placeholder="Location Name Here">
-                      <input type="text" name="location[address]" placeholder="Location Address Here"><br>
-                      Outdoors or Gym:
-                      <input type="radio" name="location[outdoors]" value=true >Outdoors
-                      <input type="radio" name="location[outdoors]" value=false >Gym<br>
-                      <input type="text" name="location[comments]" placeholder="Location Comments Here">
-                      <input type="submit" value="Update Location">
-                    </fieldset>
-                  </form>
+                    <form id="location-show-form" class="border">
+                      <fieldset>
+                        <legend>Get One Location</legend>
+                          <input required type="text" name="location[id]" placeholder="Location ID Here">
+                          <input required type="submit" value="Get a Location">
+                      </fieldset>
+                    </form>
+
+                    <form id="location-delete-form" class="border">
+                      <fieldset>
+                        <legend>Delete One Location</legend>
+                          <input required type="text" name="location[id]" placeholder="Location ID Here">
+                          <input required type="submit" value="Delete a Location">
+                      </fieldset>
+                    </form>
+
+                    <form id="location-create-form" class="border">
+                      <fieldset>
+                        <legend>Create One Location</legend>
+                        <input required type="text" name="location[name]" placeholder="Location Name Here">
+                        <input required type="text" name="location[address]" placeholder="Location Address Here"><br>
+                        Outdoors or Gym:
+                        <input required type="radio" name="location[outdoors]" value=true >Outdoors
+                        <input required type="radio" name="location[outdoors]" value=false >Gym<br>
+                        <input required type="text" name="location[comments]" placeholder="Location Comments Here">
+                        <input required type="submit" value="Create Location">
+                      </fieldset>
+                    </form>
+
+                    <form id="location-update-form" class="border">
+                      <fieldset>
+                        <legend>Update One Location</legend>
+                        <input required type="text" name="location[id]" placeholder="Location ID Here">
+                        <input required type="text" name="location[name]" placeholder="Location Name Here">
+                        <input required type="text" name="location[address]" placeholder="Location Address Here"><br>
+                        Outdoors or Gym:
+                        <input required type="radio" name="location[outdoors]" value=true >Outdoors
+                        <input required type="radio" name="location[outdoors]" value=false >Gym<br>
+                        <input required type="text" name="location[comments]" placeholder="Location Comments Here">
+                        <input required type="submit" value="Update Location">
+                      </fieldset>
+                    </form>
+                  </div>
                 </div>
-
                 <div class='right-side column'>
-                  <p id='newcontent'></p>
+                  <div id='newcontent'></div>
                 </div>
               </div>
             </div>

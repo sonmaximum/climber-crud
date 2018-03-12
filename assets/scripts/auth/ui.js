@@ -30,6 +30,9 @@ const signInSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('.hide-when-signed-in').hide()
+  $('.user-actions').show()
+  $('.location-actions').hide()
+  $('.route-actions').hide()
   $('.hide-when-signed-out').show()
   $('#newcontent').html('')
   // $('#sign-in-success').modal('show')  Don't need to show modal as interface changes on signin

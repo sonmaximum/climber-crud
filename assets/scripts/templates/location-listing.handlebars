@@ -1,20 +1,21 @@
 
 {{#each locations as |location|}}
 
-  <h3 data-id="{{location.id}}"> Name: {{location.name}}</h3>
-  <div>
-    Address:  {{location.address}}
+  <h4 data-id="{{location.id}}">{{location.name}}
     {{#if location.outdoors}}
-      Outdoors
+    (Outdoors)
     {{else}}
-      Gym
+    (Gym)
     {{/if}}
-    Comments:  {{location.comments}}
-    Maintainer:  {{location.maintainer.email}}
+  </h4>
+  <div>
+    {{location.address}}<br>
+    Maintaining account:  {{location.maintainer.email}} <br>
+    <strong>Comments:</strong>  {{location.comments}}
   </div>
 
 {{else}}
 
-<h3> No matches found</h3>
+<h2> No matches found</h2>
 
 {{/each}}

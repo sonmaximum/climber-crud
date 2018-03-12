@@ -2,62 +2,50 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Freckle+Face|Frijole|Permanent+Marker|Rock+Salt');
 
-// body,
-// html {
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
-//   background: url('https://i.imgur.com/EY7zHef.jpg') rgba(0, 0, 0, 0.1);
-// }
-//
-// .bg {
-//   &::after {
-//     background-image: url('https://i.imgur.com/EY7zHef.jpg');
-//     content: '';
-//     left: 0;
-//     margin: 0;
-//     min-height: 100%;
-//     opacity: .3;
-//     padding: 0;
-//     position: absolute;
-//     right: 0;
-//     top: 0;
-//     z-index: -1;
-//   }
-// }
+$header-brown: rgba(113, 76, 12, .8);
+$footer-green: rgba(27, 80, 27, .8);
+$greyish-text: #dcdcdc;
+$offwhite-panels: rgba(255, 255, 255, .65);
+$text-black: #333;
 
 .container-fluid {
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  font-family: 'Frijole', cursive;
-  font-size: 4em;
-  margin: 0;
-  padding-top: 20px;
-}
 
-h2 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 3em;
-  margin-top: 5px;
-  padding-bottom: 10px;
+h4 {
+  margin: 5px auto;
 }
 
 header {
-  background-color: rgba(113, 76, 12, .75);
-  color: #dcdcdc;
+  background-color: $header-brown;
+  color: $greyish-text;
   text-align: center;
+
+  h1 {
+    font-family: 'Frijole', cursive;
+    font-size: 4em;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3em;
+    margin-top: 5px;
+    padding-bottom: 10px;
+  }
 }
 
 footer {
-  background-color: rgba(27, 80, 27, .75);
-  color: #dcdcdc;
+  background-color: $footer-green;
+  color: $greyish-text;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: .08em;
   line-height: 26px;
+  margin-top: 20px;
   padding: 20px 100px 10px;
 }
 
@@ -70,12 +58,16 @@ footer {
     bottom: 0;
     content: '';
     left: 0;
-    opacity: .5;
+    opacity: .85;
     position: absolute;
     right: 0;
     top: 0;
     z-index: -1;
   }
+}
+
+.small {
+  color: text-black;
 }
 
 .allcontent {
@@ -89,35 +81,45 @@ footer {
   float: left;
 }
 
+.hide-when-signed-out {
+  display: none;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.left-side {
+  background-color: $offwhite-panels;
+  flex: 0 0 45%;
+  height: 100%;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  overflow: scroll;
+  padding: 20px;
+  z-index: 10;
+}
+
 .main-content {
   display: flex;
   flex: 1 1 auto;
-  overflow: scroll;
 }
 
 .middle-content {
   display: flex;
   flex-flow: row;
   height: 100%;
+  margin: 20px;
   z-index: 2;
 }
 
-
-
-.hide-when-signed-out {
-  display: none;
-  width: 100%;
-}
-
-.signature {
-  float: right;
+.route-name {
+  display: inline;
 }
 
 .sign-in-box {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: $offwhite-panels;
   border-radius: 10px;
   height: auto;
-  margin: 30px auto 0;
+  margin: 50px auto 0;
   max-width: 600px;
   padding: 30px;
   padding-top: 15px;
@@ -130,32 +132,37 @@ footer {
   }
 }
 
-.left-side {
-  background-color: rgba(255, 255, 255, .5);
-  flex: 1 0 45%;
-  height: 100%;
-  margin: auto 10px;
-  overflow: scroll;
-  padding: 10px;
-  z-index: 10;
+.signature {
+  float: right;
 }
 
 .right-side {
-  background-color: rgba(255, 255, 255, .5);
-  flex: 1 0 55%;
+  background-color: $offwhite-panels;
+  flex: 1 0 50%;
   height: 100%;
   overflow: scroll;
-  padding: 10px;
+  padding: 20px;
+
+  div {
+
+    div {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 @media (max-width: 700px) {
-  h1 {
-    font-size: 2em;
-  }
 
-  h2 {
-    font-size: 1.5em;
+header {
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
   }
+}
 
   footer {
     font-size: 14px;

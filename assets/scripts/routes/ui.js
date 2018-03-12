@@ -1,6 +1,7 @@
 'use strict'
 
 const indexRoutesTemplate = require('../templates/route-listing.handlebars')
+const compare = require('../customsorter.js')
 
 const routeTypeArray = ['Boulder', 'Top Rope', 'Lead', 'Sport', 'Trad.']
 
@@ -9,7 +10,7 @@ const routeIndexSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index Succeeded')
-  console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -109,6 +110,7 @@ const routeShowByTypeSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show By Type Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -132,6 +134,7 @@ const routeShowByLocationSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show By Location Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -155,6 +158,7 @@ const routeMyIndexSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('My Routes Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -178,6 +182,7 @@ const routeMyShowByTypeSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('My Routes By Type Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -201,6 +206,7 @@ const routeMyShowByLocationSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('My Routes By Type Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -224,6 +230,7 @@ const routeAttemptedSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Attempted Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -246,6 +253,7 @@ const routeCompletedSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Completed Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -268,6 +276,7 @@ const routeSentSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Sent Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -290,6 +299,7 @@ const routeProjectSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show Projects Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -312,6 +322,7 @@ const routeNotAttemptedSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show non-attempted Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -334,6 +345,7 @@ const routeNotCompletedSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show non-completed Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -356,6 +368,7 @@ const routeNotSentSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show non-sent Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
@@ -378,6 +391,7 @@ const routeNotProjectSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Show non-projects Succeeded')
   console.table(data.routes)
+  data.routes.sort(compare)
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })

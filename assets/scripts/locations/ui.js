@@ -1,12 +1,14 @@
 'use strict'
 
 const indexLocationsTemplate = require('../templates/location-listing.handlebars')
+const compare = require('../customsorter.js')
 
 const locationIndexSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index Succeeded')
+  data.locations.sort(compare)
   const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
   $('#newcontent').html('')
   $('#newcontent').append(indexLocationsHtml)
@@ -26,6 +28,7 @@ const locationMaintainedIndexSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index of Maintained Locations Succeeded')
+  data.locations.sort(compare)
   const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
   $('#newcontent').html('')
   $('#newcontent').append(indexLocationsHtml)
@@ -45,6 +48,7 @@ const locationClimbedAtIndexSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index of Climbed at Locations Succeeded')
+  data.locations.sort(compare)
   const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
   $('#newcontent').html('')
   $('#newcontent').append(indexLocationsHtml)
