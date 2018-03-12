@@ -7,7 +7,7 @@ const signUpSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-up-success').modal('show')
-  $('#message').text('Sign up succeeded')
+  $('#newcontent').html('')
 }
 
 const signUpFailure = function (error) {
@@ -15,7 +15,7 @@ const signUpFailure = function (error) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-up-failure').modal('show')
-  $('#message').text('Sign up failed')
+  $('#newcontent').html('')
   store.error = error
 }
 
@@ -29,9 +29,9 @@ const signInSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
-  $('#message').text('Sign in succeeded')
   $('.hide-when-signed-in').hide()
   $('.hide-when-signed-out').show()
+  $('#newcontent').html('')
   // $('#sign-in-success').modal('show')  Don't need to show modal as interface changes on signin
 }
 
@@ -40,7 +40,7 @@ const signInFailure = function (error) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#sign-in-failure').modal('show')
-  $('#message').text('Sign in failed')
+  $('#newcontent').html('')
   store.error = error
 }
 
@@ -50,6 +50,7 @@ const changePasswordSuccess = function () {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#change-password-success').modal('show')
   $('#message').text('CPW suceeded')
+  $('#newcontent').html('')
 }
 
 const changePasswordFailure = function (error) {
@@ -59,18 +60,16 @@ const changePasswordFailure = function (error) {
   $('#change-password-failure').modal('show')
   store.error = error
   $('#message').text('CPW failed')
+  $('#newcontent').html('')
 }
 const signOutSuccess = function () {
-  // $('#logout-success').modal('show')
-  // $('.hidewhenloggedin').show()
-  // $('.init, .board, .instructions, .user-feedback-message').css('visibility', 'hidden')
-  // $('.maincontent').css('display', 'none')
-  $('#message').text('Sign out succeeded')
+  $('#logout-success').modal('show')
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('.hide-when-signed-out').hide()
   $('.hide-when-signed-in').show()
+  $('#newcontent').html('')
   store.user = null
 }
 
@@ -79,7 +78,7 @@ const signOutFailure = function (error) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#generic-failure').modal('show')
-  $('#message').text('Sign out failed')
+  $('#newcontent').html('')
   store.error = error
 }
 

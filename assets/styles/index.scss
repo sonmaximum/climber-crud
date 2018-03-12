@@ -46,13 +46,13 @@ h2 {
 }
 
 header {
-  background-color: rgba(113, 76, 12, 0.75);
+  background-color: rgba(113, 76, 12, .75);
   color: #dcdcdc;
   text-align: center;
 }
 
 footer {
-  background-color: rgba(27, 80, 27, 0.75);
+  background-color: rgba(27, 80, 27, .75);
   color: #dcdcdc;
   font-size: 16px;
   font-weight: 500;
@@ -90,16 +90,62 @@ footer {
 }
 
 .main-content {
+  display: flex;
   flex: 1 1 auto;
-  overflow: auto;
+  overflow: scroll;
 }
+
+.middle-content {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+  z-index: 2;
+}
+
+
 
 .hide-when-signed-out {
   display: none;
+  width: 100%;
 }
 
 .signature {
   float: right;
+}
+
+.sign-in-box {
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  height: auto;
+  margin: 30px auto 0;
+  max-width: 600px;
+  padding: 30px;
+  padding-top: 15px;
+  width: 50%;
+
+  legend {
+    border-bottom: 0;
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+.left-side {
+  background-color: rgba(255, 255, 255, .5);
+  flex: 1 0 45%;
+  height: 100%;
+  margin: auto 10px;
+  overflow: scroll;
+  padding: 10px;
+  z-index: 10;
+}
+
+.right-side {
+  background-color: rgba(255, 255, 255, .5);
+  flex: 1 0 55%;
+  height: 100%;
+  overflow: scroll;
+  padding: 10px;
 }
 
 @media (max-width: 700px) {
@@ -123,5 +169,9 @@ footer {
   .copyright,
   .signature {
     float: none;
+  }
+
+  .sign-in-box {
+    padding-left: 15px;
   }
 }
