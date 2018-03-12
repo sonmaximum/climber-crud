@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Freckle+Face|Frijole|Permanent+Marker|Rock+Salt');
 
 // body,
 // html {
@@ -31,16 +32,41 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 h1 {
-  margin-top: 0;
-  padding-top: 10px;
+  font-family: 'Frijole', cursive;
+  font-size: 4em;
+  margin: 0;
+  padding-top: 20px;
+}
+
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+
+header {
+  background-color: rgba(113, 76, 12, 0.75);
+  color: #dcdcdc;
+  text-align: center;
+}
+
+footer {
+  background-color: rgba(27, 80, 27, 0.75);
+  color: #dcdcdc;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  line-height: 26px;
+  padding: 20px 100px 10px;
 }
 
 .bg {
-  height: 100%;
+  height: 100vh;
   position: relative;
 
   &::before {
-    background-image: url('https://i.imgur.com/EY7zHef.jpg');
+    background-image: url('https://i.imgur.com/0g3DYa1.jpg');
     bottom: 0;
     content: '';
     left: 0;
@@ -52,10 +78,50 @@ h1 {
   }
 }
 
-.maincontent {
+.allcontent {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
   z-index: 2;
+}
+
+.copyright {
+  float: left;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  overflow: auto;
 }
 
 .hide-when-signed-out {
   display: none;
+}
+
+.signature {
+  float: right;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  footer {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 10px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .copyright,
+  .signature {
+    float: none;
+  }
 }
