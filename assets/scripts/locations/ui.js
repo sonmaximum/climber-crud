@@ -1,6 +1,7 @@
 'use strict'
 
 const indexLocationsTemplate = require('../templates/location-listing.handlebars')
+const editablelocationsTemplate = require('../templates/location-editing.handlebars')
 const compare = require('../customsorter.js')
 
 const locationIndexSuccess = function (data) {
@@ -29,7 +30,7 @@ const locationMaintainedIndexSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index of Maintained Locations Succeeded')
   data.locations.sort(compare)
-  const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
+  const indexLocationsHtml = editablelocationsTemplate({ locations: data.locations })
   $('#newcontent').html('')
   $('#newcontent').append(indexLocationsHtml)
 }

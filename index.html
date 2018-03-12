@@ -48,10 +48,11 @@
             <div class="hide-when-signed-out">
               <div class="middle-content">
                 <div class="left-side column">
-
-                  <button id='user-actions-button'>User actions</button>
-                  <button id='route-actions-button'>Route actions</button>
-                  <button id='location-actions-button'>Location actions</button>
+                  <div class='buttonbar'>
+                    <button type="button" class="btn btn-info btn-lg" id='user-actions-button'>User actions</button>
+                    <button type="button" class="btn btn-info btn-lg" id='route-actions-button'>Route actions</button>
+                    <button type="button" class="btn btn-info btn-lg" id='location-actions-button'>Location actions</button>
+                  </div>
                   <br>
                   <div class='user-actions'>
 
@@ -276,24 +277,22 @@
                   </div>
 
                   <div class='location-actions'>
+                    <!-- <legend>Get Locations</legend> -->
                     <form id="location-index-form" class="border">
                       <fieldset>
-                        <legend>Get All Locations</legend>
-                        <input required type="submit" value="Get All Locations">
+                        <input required type="submit" class="btn btn-info btn-block btn-lg" value="View All Locations">
                       </fieldset>
                     </form>
-
-                    <form id="location-maintained-index-form" class="border">
-                      <fieldset>
-                        <legend>Get Locations I maintain</legend>
-                        <input required type="submit" value="Get Maintained Locations">
-                      </fieldset>
-                    </form>
-
+                    <br>
                     <form id="location-climbed-at-index-form" class="border">
                       <fieldset>
-                        <legend>Get Locations I've climbed at</legend>
-                        <input required type="submit" value="Get Climbed at Locations">
+                        <input required type="submit" class="btn btn-info btn-block btn-lg" value="View Locations I've Climbed At">
+                      </fieldset>
+                    </form>
+                    <br>
+                    <form id="location-maintained-index-form" class="border">
+                      <fieldset>
+                        <input required type="submit" class="btn btn-info btn-block btn-lg" value="View Edit or Delete Locations I Maintain">
                       </fieldset>
                     </form>
 

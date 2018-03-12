@@ -1,0 +1,22 @@
+
+{{#each locations as |location|}}
+
+  <h4 data-id="{{location.id}}">{{location.name}}
+    {{#if location.outdoors}}
+    (Outdoors)
+    {{else}}
+    (Gym)
+    {{/if}}
+  </h4>
+  <div>
+    {{location.address}}<br>
+    Maintaining account:  {{location.maintainer.email}} <br>
+    <strong>Comments:</strong>  {{location.comments}}<br>
+    <button>Edit</button> <button>Remove</button>
+  </div>
+
+{{else}}
+
+<h2> No matches found</h2>
+
+{{/each}}

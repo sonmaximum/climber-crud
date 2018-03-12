@@ -4,7 +4,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $header-brown: rgba(113, 76, 12, .8);
 $footer-green: rgba(27, 80, 27, .8);
-$greyish-text: #dcdcdc;
+$greyish-text: #e3e3e3;
 $offwhite-panels: rgba(255, 255, 255, .65);
 $text-black: #333;
 
@@ -77,6 +77,12 @@ footer {
   z-index: 2;
 }
 
+.buttonbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .copyright {
   float: left;
 }
@@ -89,6 +95,7 @@ footer {
 
 .left-side {
   background-color: $offwhite-panels;
+  border-radius: 20px;
   flex: 0 0 45%;
   height: 100%;
   margin-bottom: 20px;
@@ -138,6 +145,7 @@ footer {
 
 .right-side {
   background-color: $offwhite-panels;
+  border-radius: 20px;
   flex: 1 0 50%;
   height: 100%;
   overflow: scroll;
