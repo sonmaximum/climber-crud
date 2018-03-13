@@ -1,0 +1,31 @@
+<form id="location-create-form" class="border">
+  <fieldset>
+    <h3>Create A New Location</h3>
+    <div class="form-group">
+      <label for="createlocationname">Location Name</label>
+      <input required type="text" class="form-control" id="createlocationname" name="location[name]" placeholder="Location Name">
+    </div>
+    <div class="form-group">
+      <label for="createlocationaddress">Location Address</label>
+      <input required type="text" class="form-control" id="createlocationaddress" name="location[address]" placeholder="Location Address">
+    </div>
+    <label>Location Type</label>
+    <div class="radio">
+      <label>
+        <input required type="radio" name="location[outdoors]" id="location[outdoors]1" value=true >
+        Outdoors
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input required type="radio" name="location[outdoors]" id="location[outdoors]2" value=false >
+        Gym
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="createlocationcomments">Location Comments</label>
+      <textarea class="form-control" id="createlocationcomments" name="location[comments]" placeholder="Comments" rows="3"></textarea>
+    </div>
+    <input required type="submit" class='btn btn-info btn-lg btn-block' value="Create Location">
+  </fieldset>
+</form>

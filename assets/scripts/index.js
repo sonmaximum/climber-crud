@@ -6,6 +6,8 @@ const authEvents = require('./auth/events.js')
 const routeEvents = require('./routes/events.js')
 const locationEvents = require('./locations/events.js')
 const buttonEvents = require('./button-handlers.js')
+const deleteEvents = require('./delete-events.js')
+const updateEvents = require('./update-events.js')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -13,6 +15,8 @@ $(() => {
   routeEvents.addHandlers()
   locationEvents.addHandlers()
   buttonEvents.addHandlers()
+  deleteEvents.addHandlers()
+  updateEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file

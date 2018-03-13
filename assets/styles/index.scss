@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Freckle+Face|Frijole|Permanent+Marker|Rock+Salt');
+@import '~//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css';
 
 $header-brown: rgba(113, 76, 12, .8);
 $footer-green: rgba(27, 80, 27, .8);
@@ -13,9 +14,15 @@ $text-black: #333;
   padding: 0;
 }
 
-
+h2,
+h3,
 h4 {
   margin: 5px auto;
+}
+
+h3 {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 header {
@@ -47,6 +54,15 @@ footer {
   line-height: 26px;
   margin-top: 20px;
   padding: 20px 100px 10px;
+}
+
+.radio {
+  margin-top: 0;
+}
+
+textarea {
+  margin-bottom: 15px;
+  resize: none;
 }
 
 .bg {
@@ -85,6 +101,15 @@ footer {
 
 .copyright {
   float: left;
+}
+
+.climber-icon {
+  height: 18px;
+  width: 18px;
+}
+
+.climber-color {
+  fill: white;
 }
 
 .hide-when-signed-out {
@@ -150,6 +175,11 @@ footer {
   height: 100%;
   overflow: scroll;
   padding: 20px;
+
+  legend {
+    border-bottom: 0;
+    margin-bottom: 10px;
+    }
 
   div {
 

@@ -1,7 +1,7 @@
 'use strict'
 
 const indexLocationsTemplate = require('../templates/location-listing.handlebars')
-const editablelocationsTemplate = require('../templates/location-editing.handlebars')
+const editableLocationsTemplate = require('../templates/location-editing.handlebars')
 const compare = require('../customsorter.js')
 
 const locationIndexSuccess = function (data) {
@@ -11,7 +11,7 @@ const locationIndexSuccess = function (data) {
   $('#message').text('Index Succeeded')
   data.locations.sort(compare)
   const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
-  $('#newcontent').html('')
+  $('#newcontent').html('<h3>All Locations</h3>')
   $('#newcontent').append(indexLocationsHtml)
 }
 
@@ -30,8 +30,8 @@ const locationMaintainedIndexSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Index of Maintained Locations Succeeded')
   data.locations.sort(compare)
-  const indexLocationsHtml = editablelocationsTemplate({ locations: data.locations })
-  $('#newcontent').html('')
+  const indexLocationsHtml = editableLocationsTemplate({ locations: data.locations })
+  $('#newcontent').html('<h3>Locations I maintain</h3>')
   $('#newcontent').append(indexLocationsHtml)
 }
 
@@ -51,7 +51,7 @@ const locationClimbedAtIndexSuccess = function (data) {
   $('#message').text('Index of Climbed at Locations Succeeded')
   data.locations.sort(compare)
   const indexLocationsHtml = indexLocationsTemplate({ locations: data.locations })
-  $('#newcontent').html('')
+  $('#newcontent').html('<h3>Locations I\'ve climbed at</h3>')
   $('#newcontent').append(indexLocationsHtml)
 }
 
@@ -107,9 +107,10 @@ const locationCreateSuccess = function (data) {
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
-  $('#message').text('Create Succeeded')
   $('#newcontent').html('')
-  console.log(data)
+  const createLocationHtml = indexLocationsTemplate({ locations: data })
+  $('#newcontent').html('<h3>Success!  Location Created</h3>')
+  $('#newcontent').append(createLocationHtml)
 }
 
 const locationCreateFailure = function (error) {
@@ -126,7 +127,9 @@ const locationUpdateSuccess = function (data) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#message').text('Update Succeeded')
   $('#newcontent').html('')
-  console.log(data)
+  const createLocationHtml = indexLocationsTemplate({ locations: data })
+  $('#newcontent').html('<h3>Success!  Location Updated</h3>')
+  $('#newcontent').append(createLocationHtml)
 }
 
 const locationUpdateFailure = function (error) {

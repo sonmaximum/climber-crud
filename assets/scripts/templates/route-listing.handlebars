@@ -4,13 +4,16 @@
   <h4 class='route-name' data-id="{{route.id}}">{{route.name}}</h4>
   <small>Logged by:  {{route.user.email}}<br></small>
   <div>
-
-    {{route.location.name}}
-    {{#if route.location.outdoors}}
-    (Outdoors)
+    {{#if route.location}}
+      {{route.location.name}}
+      {{#if route.location.outdoors}}
+      (Outdoors)
+      {{else}}
+      (Gym)
+      {{/if}}<br>
     {{else}}
-    (Gym)
-    {{/if}}<br>
+    (Location removed)<br>
+    {{/if}}
     Rating:  {{route.rating}}<br>
     Color:  {{route.color}} <br>
     Type:  {{route.route_type}}<br>

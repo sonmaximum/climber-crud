@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 let token
+let id
 
 const locationIndex = function () {
   token = ''
@@ -55,8 +56,13 @@ const locationShow = function (data) {
   if (store.user) {
     token = store.user.token
   }
+  if (data.location) {
+    id = data.location.id
+  } else {
+    id = data
+  }
   return $.ajax({
-    url: config.apiOrigin + '/locations/' + data.location.id,
+    url: config.apiOrigin + '/locations/' + id,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -66,8 +72,13 @@ const locationShow = function (data) {
 }
 
 const locationDelete = function (data) {
+  if (data.location) {
+    id = data.location.id
+  } else {
+    id = data
+  }
   return $.ajax({
-    url: config.apiOrigin + '/locations/' + data.location.id,
+    url: config.apiOrigin + '/locations/' + id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',

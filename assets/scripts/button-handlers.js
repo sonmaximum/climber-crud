@@ -5,12 +5,18 @@ const showUserActions = function () {
   $('.location-actions').hide()
   $('.route-actions').hide()
   $('#newcontent').html('')
+  $('#route-actions-button').removeClass('active')
+  $('#user-actions-button').addClass('active')
+  $('#location-actions-button').removeClass('active')
 }
 
 const showLocationActions = function () {
   $('.user-actions').hide()
   $('.location-actions').show()
   $('.route-actions').hide()
+  $('#route-actions-button').removeClass('active')
+  $('#user-actions-button').removeClass('active')
+  $('#location-actions-button').addClass('active')
   $('#newcontent').html('')
 }
 
@@ -19,6 +25,9 @@ const showRouteActions = function () {
   $('.location-actions').hide()
   $('.route-actions').show()
   $('#newcontent').html('')
+  $('#route-actions-button').addClass('active')
+  $('#user-actions-button').removeClass('active')
+  $('#location-actions-button').removeClass('active')
 }
 
 const addHandlers = function () {

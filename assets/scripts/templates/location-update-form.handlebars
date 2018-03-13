@@ -1,0 +1,36 @@
+{{#each locations as |location|}}
+
+<form id="location-update-form" class="border">
+  <fieldset>
+    <h3>Update Location</h3>
+    <div class="form-group">
+      <label for="createlocationname" >Location Name</label>
+      <input required type="text" class="form-control" id="createlocationname" name="location[name]" value={{location.name}} placeholder="Location Name">
+    </div>
+    <div class="form-group">
+      <label for="createlocationaddress">Location Address</label>
+      <input required type="text" class="form-control" id="createlocationaddress" name="location[address]" value={{location.address}} placeholder="Location Address">
+    </div>
+    <label>Location Type</label>
+    <div class="radio">
+      <label>
+        <input required type="radio" name="location[outdoors]" id="location[outdoors]1" {{#if location.outdoors}} checked {{/if}} value=true >
+        Outdoors
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input required type="radio" name="location[outdoors]" id="location[outdoors]2" {{#unless location.outdoors}} checked {{/unless}} value=false >
+        Gym
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="createlocationcomments">Location Comments</label>
+      <textarea class="form-control" id="createlocationcomments" name="location[comments]" placeholder="Comments" rows="3">{{location.comments}}</textarea>
+    </div>
+    <input name="location[id]" type="hidden" value="{{location.id}}">
+    <input required type="submit" class='btn btn-info btn-lg btn-block' value="Update Location">
+  </fieldset>
+</form>
+
+{{/each}}

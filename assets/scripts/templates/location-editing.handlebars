@@ -12,7 +12,8 @@
     {{location.address}}<br>
     Maintaining account:  {{location.maintainer.email}} <br>
     <strong>Comments:</strong>  {{location.comments}}<br>
-    <button>Edit</button> <button>Remove</button>
+    <button class="location-update btn btn-sm btn-info" data-id={{location.id}}>Update</button>
+    <button class="location-delete btn btn-sm btn-danger" data-id={{location.id}}>Delete</button>
   </div>
 
 {{else}}
