@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 let token
+let id
 
 const routeIndex = function () {
   token = ''
@@ -25,8 +26,12 @@ const routeShow = function (data) {
   if (store.user) {
     token = store.user.token
   }
+  id = data
+  if (data.route) {
+    id = data.route.id
+  }
   return $.ajax({
-    url: config.apiOrigin + '/routes/' + data.route.id,
+    url: config.apiOrigin + '/routes/' + id,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -36,8 +41,12 @@ const routeShow = function (data) {
 }
 
 const routeDelete = function (data) {
+  id = data
+  if (data.route) {
+    id = data.route.id
+  }
   return $.ajax({
-    url: config.apiOrigin + '/routes/' + data.route.id,
+    url: config.apiOrigin + '/routes/' + id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',

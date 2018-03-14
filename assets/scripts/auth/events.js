@@ -16,7 +16,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('ld is', locationDropdown)
   locationDropdown()
   const data = getFormFields(this)
   api.signIn(data)

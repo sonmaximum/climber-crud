@@ -112,6 +112,21 @@ textarea {
   fill: white;
 }
 
+.form-horizontal {
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  textarea {
+    margin-bottom: 0;
+  }
+}
+
+.glyphicon-fire {
+  color: red;
+}
+
 .hide-when-signed-out {
   display: none;
   margin-bottom: 20px;
@@ -143,6 +158,20 @@ textarea {
   z-index: 2;
 }
 
+.password-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+
+    input {
+    flex-shrink: 1;
+    margin: 5px;
+
+
+  }
+}
+
 .route-name {
   display: inline;
 }
@@ -153,14 +182,38 @@ textarea {
   height: auto;
   margin: 50px auto 0;
   max-width: 600px;
-  padding: 30px;
-  padding-top: 15px;
+  padding: 5px 30px 15px;
   width: 50%;
 
   legend {
     border-bottom: 0;
     margin: 0;
     padding: 10px;
+  }
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  > input {
+    flex-shrink: 1;
+    margin: 5px;
+  }
+}
+
+
+.sign-up-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  > input {
+    flex-shrink: 1;
+    margin: 5px;
   }
 }
 
@@ -189,9 +242,27 @@ textarea {
   }
 }
 
+.user-actions {
+
+  legend {
+    border: 0;
+    margin-bottom: 5px;
+  }
+}
+
+.projectbuttons {
+  display: flex;
+  margin: 0 -15px;
+
+  button {
+    flex-grow: 1;
+    margin: 0 15px;
+  }
+}
+
 @media (max-width: 700px) {
 
-header {
+  header {
 
     h1 {
       font-size: 2em;
@@ -199,8 +270,19 @@ header {
 
     h2 {
       font-size: 1.5em;
+    }
   }
-}
+
+  .sign-in-box {
+    display: block;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+
+  .left-side {
+    flex: 1 1 100%;
+  }
 
   footer {
     font-size: 14px;
@@ -218,5 +300,9 @@ header {
 
   .sign-in-box {
     padding-left: 15px;
+  }
+
+  .password-box {
+    flex-wrap: wrap;
   }
 }

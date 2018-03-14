@@ -9,6 +9,7 @@ const ui = require('./ui')
 
 const onLocationIndex = function (event) {
   event.preventDefault()
+  $('.right-side').show()
   api.locationIndex()
     .then(ui.locationIndexSuccess)
     .catch(ui.locationIndexFailure)
@@ -18,6 +19,7 @@ const onLocationMaintainedIndex = function (event) {
   if (event) {
     event.preventDefault()
   }
+  $('.right-side').show()
   api.locationMaintainedIndex()
     .then(ui.locationMaintainedIndexSuccess)
     .catch(ui.locationMaintainedIndexFailure)
@@ -25,6 +27,7 @@ const onLocationMaintainedIndex = function (event) {
 
 const onLocationClimbedAtIndex = function (event) {
   event.preventDefault()
+  $('.right-side').show()
   api.locationClimbedAtIndex()
     .then(ui.locationClimbedAtIndexSuccess)
     .catch(ui.locationClimbedAtIndexFailure)
@@ -33,7 +36,6 @@ const onLocationClimbedAtIndex = function (event) {
 const onLocationShow = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.locationShow(data)
     .then(ui.locationShowSuccess)
     .catch(ui.locationShowFailure)
@@ -42,7 +44,6 @@ const onLocationShow = function (event) {
 const onLocationDelete = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.locationDelete(data)
     .then(ui.locationDeleteSuccess)
     .then(locationDropdown)
@@ -52,12 +53,9 @@ const onLocationDelete = function (event) {
 const onLocationCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
-  console.log(data.comments)
   if (!data.location.comments) {
     data.location.comments = 'None'
   }
-  console.log(data)
   api.locationCreate(data)
     .then(ui.locationCreateSuccess)
     .then(locationDropdown)
@@ -67,7 +65,6 @@ const onLocationCreate = function (event) {
 const onLocationUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.locationUpdate(data)
     .then(ui.locationUpdateSuccess)
     .catch(ui.locationUpdateFailure)
@@ -76,6 +73,7 @@ const onLocationUpdate = function (event) {
 
 const showCreateLocationForm = function (event) {
   event.preventDefault()
+  $('.right-side').show()
   $('#newcontent').html('')
   $('#newcontent').html(createLocationForm)
   $('#location-create-form').on('submit', onLocationCreate)

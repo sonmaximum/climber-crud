@@ -19,26 +19,27 @@
             <h2>The Climbing Route User Database</h2>
           </header>
 
-          <!-- <p id="message"></p> -->
-
-
           <div class='hide-when-signed-in'>
             <div class='sign-in-box'>
-              <form id="sign-in-form" class="border">
+              <form id="sign-in-form">
                 <fieldset>
                   <legend>Sign in!</legend>
-                  <input required type="text" name="credentials[email]" placeholder="Email">
-                  <input required type="password" name="credentials[password]" placeholder="Password">
-                  <input required type="submit" value="Sign in!">
+                  <div class="sign-in-form">
+                    <input required type="text" class="form-control input-lg" name="credentials[email]" placeholder="Email">
+                    <input required type="password"  class="form-control input-lg" name="credentials[password]" placeholder="Password">
+                    <input required type="submit" class="btn btn-info btn-lg" value="Sign in!">
+                  </div>
                 </fieldset>
               </form>
-              <form id="sign-up-form" class="border">
+              <form id="sign-up-form" >
                 <fieldset>
                   <legend>Sign up!</legend>
-                  <input required type="text" name="credentials[email]" placeholder="Email">
-                  <input required type="password" name="credentials[password]" placeholder="Password">
-                  <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                  <input required type="submit" value="Sign up!">
+                  <div class="sign-up-form">
+                      <input required type="text" class="form-control " name="credentials[email]" placeholder="Email">
+                      <input required type="password" class="form-control " name="credentials[password]" placeholder="Password">
+                      <input required type="password" class="form-control " name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      <input required type="submit" class="btn btn-info "  value="Sign up!">
+                  </div>
                 </fieldset>
               </form>
             </div>
@@ -79,230 +80,37 @@
                   <br>
                   <div class='user-actions'>
 
-                    <form id="change-password-form" class="border">
+                    <form id="change-password-form">
                       <fieldset>
-                        <legend>Change Password!</legend>
-                        <input required type="password" name="passwords[old]" placeholder="Old Password">
-                        <input required type="password" name="passwords[new]" placeholder="New Password">
-                        <input required type="submit" value="Change Password!">
+                        <legend>Change Password</legend>
+                        <div  class="password-box">
+                          <input required type="password" class="form-control input-lg" name="passwords[old]" placeholder="Old Password">
+                          <input required type="password" class="form-control input-lg" name="passwords[new]" placeholder="New Password">
+                          <input required type="submit" class="btn btn-lg btn-info" value="Change Password">
+                        </div>
                       </fieldset>
                     </form>
 
                     <form id="sign-out-form" class="border">
                       <fieldset>
-                        <legend>Sign Out!</legend>
-                        <input required type="submit" value="Sign out!">
+                        <legend>Sign Out</legend>
+                        <input required type="submit" class="btn btn-danger btn-lg" value="Sign out">
                       </fieldset>
                     </form>
                   </div>
 
                   <div class = 'route-actions'>
-                    <form id="route-index-form" class="border">
-                      <fieldset>
-                        <legend>Get All Routes</legend>
-                        <input required type="submit" value="Get All Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-show-form" class="border">
-                      <fieldset>
-                        <legend>Get One Route</legend>
-                          <input required type="text" name="route[id]" placeholder="Route ID Here">
-                          <input required type="submit" value="Get a Route">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-show-by-type-form" class="border">
-                      <fieldset>
-                        <legend>Get Routes by Type</legend>
-                        <select name="route[route_type]" form="route-show-by-type-form" required>
-                          <option value="" selected disabled hidden>Route Type</option>
-                          <option value="0">Boulder</option>
-                          <option value="1">Top Rope</option>
-                          <option value="2">Lead</option>
-                          <option value="3">Sport</option>
-                          <option value="4">Trad.</option>
-                        </select>
-                          <input required type="submit" value="Get Routes by Type">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-show-by-location-form" class="border">
-                      <fieldset>
-                        <legend>Get Routes by Location</legend>
-                        <span class="location-dropdown"> </span>
-                        <input required type="submit" value="Get Routes by Location">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-my-index-form" class="border">
-                      <fieldset>
-                        <legend>Get MY Routes</legend>
-                        <input required type="submit" value="Get All MY Routes">
-                      </fieldset>
-                    </form>
-
-
-                    <form id="route-my-show-by-type-form" class="border">
-                      <fieldset>
-                        <legend>Get MY Routes by Type</legend>
-                        <select name="route[route_type]" form="route-my-show-by-type-form" required>
-                          <option value="" selected disabled hidden>Route Type</option>
-                          <option value="0">Boulder</option>
-                          <option value="1">Top Rope</option>
-                          <option value="2">Lead</option>
-                          <option value="3">Sport</option>
-                          <option value="4">Trad.</option>
-                        </select>
-                          <input required type="submit" value="Get MY Routes by Type">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-my-show-by-location-form" class="border">
-                      <fieldset>
-                        <legend>Get MY Routes by Location</legend>
-                        <span class="location-dropdown"> </span>
-                        <input required type="submit" value="Get MY Routes by Location">
-                      </fieldset>
-                    </form>
-
-
-                    <form id="route-attempted-form" class="border">
-                      <fieldset>
-                        <legend>Get Attempted Routes</legend>
-                        <input required type="submit" value="Get Attempted Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-completed-form" class="border">
-                      <fieldset>
-                        <legend>Get Completed Routes</legend>
-                        <input required type="submit" value="Get Completed Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-sent-form" class="border">
-                      <fieldset>
-                        <legend>Get Sent Routes</legend>
-                        <input required type="submit" value="Get Sent Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-project-form" class="border">
-                      <fieldset>
-                        <legend>Get Projects</legend>
-                        <input required type="submit" value="Get Projects">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-not-attempted-form" class="border">
-                      <fieldset>
-                        <legend>Get non-attempted Routes</legend>
-                        <input required type="submit" value="Get non-attempted Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-not-completed-form" class="border">
-                      <fieldset>
-                        <legend>Get non-completed Routes</legend>
-                        <input required type="submit" value="Get non-completed Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-not-sent-form" class="border">
-                      <fieldset>
-                        <legend>Get non-sent Routes</legend>
-                        <input required type="submit" value="Get non-sent Routes">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-not-project-form" class="border">
-                      <fieldset>
-                        <legend>Get non-projects</legend>
-                        <input required type="submit" value="Get non-projects">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-delete-form" class="border">
-                      <fieldset>
-                        <legend>Delete One Route</legend>
-                        <input required type="text" name="route[id]" placeholder="Route ID Here">
-                        <input required type="submit" value="Delete Route">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-create-form" class="border">
-                      <fieldset>
-                        <legend>Create One Route</legend>
-                        <input required type="text" name="route[name]" placeholder="Route Name Here">
-                        <input required type="text" name="route[rating]" placeholder="Route Rating Here">
-                        <span class="location-dropdown"> </span>
-                        <select name="route[route_type]" form="route-create-form" required>
-                          <option value="" selected disabled hidden>Route Type</option>
-                          <option value="0">Boulder</option>
-                          <option value="1">Top Rope</option>
-                          <option value="2">Lead</option>
-                          <option value="3">Sport</option>
-                          <option value="4">Trad.</option>
-                        </select>
-                        <input required type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                        Attempted?
-                        <input required type="radio" name="route[attempted]" value=true >Yes
-                        <input required type="radio" name="route[attempted]" value=false >No<br>
-                        Completed?
-                        <input required type="radio" name="route[completed]" value=true >Yes
-                        <input required type="radio" name="route[completed]" value=false >No<br>
-                        Sent?
-                        <input required type="radio" name="route[sent]" value=true >Yes
-                        <input required type="radio" name="route[sent]" value=false >No<br>
-                        Project?
-                        <input required type="radio" name="route[project]" value=true >Yes
-                        <input required type="radio" name="route[project]" value=false >No<br>
-                        <input required type="number" name="route[hangs]" placeholder="Route Hangs Here">
-                        <input required type="text" name="route[comments]" placeholder="Route Comments Here">
-                        <input required type="submit" value="Create Route">
-                      </fieldset>
-                    </form>
-
-                    <form id="route-update-form" class="border">
-                      <fieldset>
-                        <legend>Update One Route</legend>
-                        <input required type="text" name="route[id]" placeholder="Route ID Here"><br>
-                        <input required type="text" name="route[name]" placeholder="Route Name Here">
-                        <input required type="text" name="route[rating]" placeholder="Route Rating Here">
-                        <span class="location-dropdown"> </span>
-                        <select name="route[route_type]" form="route-update-form">
-                          <option value="" selected disabled hidden>Route Type</option>
-                          <option value="0">Boulder</option>
-                          <option value="1">Top Rope</option>
-                          <option value="2">Lead</option>
-                          <option value="3">Sport</option>
-                          <option value="4">Trad.</option>
-                        </select>
-                        <input required type="text" name="route[color]" placeholder="Route Color Here"> <br>
-                        Attempted?
-                        <input required type="radio" name="route[attempted]" value=true >Yes
-                        <input required type="radio" name="route[attempted]" value=false >No<br>
-                        Completed?
-                        <input required type="radio" name="route[completed]" value=true >Yes
-                        <input required type="radio" name="route[completed]" value=false >No<br>
-                        Sent?
-                        <input required type="radio" name="route[sent]" value=true >Yes
-                        <input required type="radio" name="route[sent]" value=false >No<br>
-                        Project?
-                        <input required type="radio" name="route[project]" value=true >Yes
-                        <input required type="radio" name="route[project]" value=false >No<br>
-                        <input required type="number" name="route[hangs]" placeholder="Route Hangs Here">
-                        <input required type="text" name="route[comments]" placeholder="Route Comments Here">
-                        <input required type="submit" value="Update Route">
-                      </fieldset>
-                    </form>
+                    <button type="button" class="btn btn-info btn-lg btn-block" id='route-create-show-form'>Log a New Route</button>
+                    <br>
+                    <button type="button" class="btn btn-info btn-lg btn-block" id='route-show-my-options'>Access Options For My Routes</button>
+                    <br>
+                    <button type="button" class="btn btn-info btn-lg btn-block" id='route-show-all-options'>Access Options For All Routes</button>
+                    <br>
                   </div>
 
                   <div class='location-actions'>
-                    <!-- <legend>Get Locations</legend> -->
 
-                    <button type="button" class="btn btn-info btn-lg btn-block" id='location-create-show-form'>Create A New Location</button>
+                    <button type="button" class="btn btn-info btn-lg btn-block" id='location-create-show-form'>Create a New Location</button>
 
                     <br>
 
@@ -412,6 +220,41 @@
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
 
+      <div class="modal fade" id='change-password-success' tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Success!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Password changed successfully!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+      <div class="modal fade" id='change-password-failure' tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Error on Changing Password</h4>
+            </div>
+            <div class="modal-body">
+              <p>Uh-oh! Something went wrong...  <br>Double check your input?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
 
       <div class="modal fade" id='generic-failure' tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
@@ -445,6 +288,26 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
               <button type="button" class="btn btn-info locationDeleteConfirmButton" data-dismiss='modal'>Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="confirmDeleteRouteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteRouteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="confirmDeleteRouteModalLabel">Confirm Deletion</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this route?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-info routeDeleteConfirmButton" data-dismiss='modal'>Yes</button>
             </div>
           </div>
         </div>

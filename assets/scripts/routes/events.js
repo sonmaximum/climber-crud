@@ -2,6 +2,12 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
 
+const locationDropdown = require('../locations/locationdropdown.js')
+
+const createRouteForm = require('../templates/route-create-form.handlebars')
+const routeAllOptions = require('../templates/route-all-options.handlebars')
+const routeMyOptions = require('../templates/route-my-options.handlebars')
+
 const api = require('./api')
 const ui = require('./ui')
 
@@ -12,18 +18,9 @@ const onRouteIndex = function (event) {
     .catch(ui.routeIndexFailure)
 }
 
-const onRouteShow = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.routeShow(data)
-    .then(ui.routeShowSuccess)
-    .catch(ui.routeShowFailure)
-}
-
 const onRouteDelete = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.routeDelete(data)
     .then(ui.routeDeleteSuccess)
     .catch(ui.routeDeleteFailure)
@@ -32,7 +29,34 @@ const onRouteDelete = function (event) {
 const onRouteCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
+  if (!data.route.comments) {
+    data.route.comments = 'None'
+  }
+  if (!data.route.color) {
+    data.route.color = 'N/A'
+  }
+  switch (data.route.progress) {
+    case 'notyetattempted':
+      data.route.attempted = false
+      data.route.completed = false
+      data.route.sent = false
+      break
+    case 'attempted':
+      data.route.attempted = true
+      data.route.completed = false
+      data.route.sent = false
+      break
+    case 'completed':
+      data.route.attempted = true
+      data.route.completed = true
+      data.route.sent = false
+      break
+    case 'sent':
+      data.route.attempted = true
+      data.route.completed = true
+      data.route.sent = true
+      break
+  }
   api.routeCreate(data)
     .then(ui.routeCreateSuccess)
     .catch(ui.routeCreateFailure)
@@ -41,7 +65,6 @@ const onRouteCreate = function (event) {
 const onRouteUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.routeUpdate(data)
     .then(ui.routeUpdateSuccess)
     .catch(ui.routeUpdateFailure)
@@ -50,7 +73,6 @@ const onRouteUpdate = function (event) {
 const onRouteShowByType = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.routeShowByType(data)
     .then(ui.routeShowByTypeSuccess)
     .catch(ui.routeShowByTypeFailure)
@@ -59,16 +81,14 @@ const onRouteShowByType = function (event) {
 const onRouteMyShowByType = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
-  api.routeMyShowByLocation(data)
-    .then(ui.routeMyShowByLocationSuccess)
-    .catch(ui.routeMyShowByLocationFailure)
+  api.routeMyShowByType(data)
+    .then(ui.routeMyShowByTypeSuccess)
+    .catch(ui.routeMyShowByTypeFailure)
 }
 
 const onRouteShowByLocation = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.routeShowByLocation(data)
     .then(ui.routeShowByLocationSuccess)
     .catch(ui.routeShowByLocationFailure)
@@ -77,14 +97,15 @@ const onRouteShowByLocation = function (event) {
 const onRouteMyShowByLocation = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.routeMyShowByLocation(data)
     .then(ui.routeMyShowByLocationSuccess)
     .catch(ui.routeMyShowByLocationFailure)
 }
 
 const onRouteMyIndex = function (event) {
-  event.preventDefault()
+  if (event) {
+    event.preventDefault()
+  }
   api.routeMyIndex()
     .then(ui.routeMyIndexSuccess)
     .catch(ui.routeMyIndexFailure)
@@ -146,17 +167,68 @@ const onRouteNotProject = function (event) {
     .catch(ui.routeNotProjectFailure)
 }
 
-const addHandlers = () => {
-  $('#route-index-form').on('submit', onRouteIndex)
-  $('#route-show-form').on('submit', onRouteShow)
-  $('#route-delete-form').on('submit', onRouteDelete)
+const showCreateRouteForm = function (event) {
+  event.preventDefault()
+  $('.right-side').show()
+  $('#newcontent').hide()
+  $('#newcontent').html(createRouteForm)
+  locationDropdown()
   $('#route-create-form').on('submit', onRouteCreate)
-  $('#route-update-form').on('submit', onRouteUpdate)
-  $('#route-show-by-type-form').on('submit', onRouteShowByType)
-  $('#route-my-show-by-type-form').on('submit', onRouteMyShowByType)
+}
+
+const showAllRouteOptions = function (event) {
+  event.preventDefault()
+  $('.right-side').show()
+  $('#newcontent').hide()
+  $('#newcontent').html(routeAllOptions)
+  locationDropdown()
+  $('#route-index-form').on('submit', onRouteIndex)
   $('#route-show-by-location-form').on('submit', onRouteShowByLocation)
-  $('#route-my-show-by-location-form').on('submit', onRouteMyShowByLocation)
+  $('#route-show-by-type-form').on('submit', onRouteShowByType)
+}
+
+const onRouteShowByProgress = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  switch (data.route.progress) {
+    case 'attempted':
+      onRouteAttempted(event)
+      break
+    case 'notattempted':
+      onRouteNotAttempted(event)
+      break
+    case 'completed':
+      onRouteCompleted(event)
+      break
+    case 'notcompleted':
+      onRouteNotCompleted(event)
+      break
+    case 'sent':
+      onRouteSent(event)
+      break
+    case 'notsent':
+      onRouteNotSent(event)
+      break
+  }
+}
+
+const showMyRouteOptions = function (event) {
+  event.preventDefault()
+  $('.right-side').show()
+  $('#newcontent').hide()
+  $('#newcontent').html(routeMyOptions)
+  locationDropdown()
   $('#route-my-index-form').on('submit', onRouteMyIndex)
+  $('#route-my-show-by-location-form').on('submit', onRouteMyShowByLocation)
+  $('#route-my-show-by-type-form').on('submit', onRouteMyShowByType)
+  $('#projectbutton').on('click', onRouteProject)
+  $('#nonprojectbutton').on('click', onRouteNotProject)
+  $('#route-my-show-by-progress-form').on('submit', onRouteShowByProgress)
+}
+
+const addHandlers = () => {
+  $('#route-delete-form').on('submit', onRouteDelete)
+  $('#route-update-form').on('submit', onRouteUpdate)
   $('#route-attempted-form').on('submit', onRouteAttempted)
   $('#route-completed-form').on('submit', onRouteCompleted)
   $('#route-sent-form').on('submit', onRouteSent)
@@ -165,8 +237,13 @@ const addHandlers = () => {
   $('#route-not-completed-form').on('submit', onRouteNotCompleted)
   $('#route-not-sent-form').on('submit', onRouteNotSent)
   $('#route-not-project-form').on('submit', onRouteNotProject)
+  $('#route-create-show-form').on('click', showCreateRouteForm)
+  $('#route-show-all-options').on('click', showAllRouteOptions)
+  $('#route-show-my-options').on('click', showMyRouteOptions)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onRouteUpdate,
+  onRouteMyIndex
 }

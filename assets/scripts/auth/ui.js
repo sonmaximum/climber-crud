@@ -21,11 +21,6 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  // $('.init').css('visibility', 'visible')
-  // $('.board, .instructions').css('visibility', 'hidden')
-  // $('.maincontent').css('display', 'flex')
-  // $('.hidewhenloggedin').hide()
-  // $('#username').text(data.user.email)
   $('form').find('input:not([type="submit"]):not([type="radio"])').val('')
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
@@ -33,9 +28,9 @@ const signInSuccess = function (data) {
   $('.user-actions').show()
   $('.location-actions').hide()
   $('.route-actions').hide()
+  $('.right-side').hide()
   $('.hide-when-signed-out').show()
   $('#newcontent').html('')
-  // $('#sign-in-success').modal('show')  Don't need to show modal as interface changes on signin
 }
 
 const signInFailure = function (error) {
@@ -52,7 +47,6 @@ const changePasswordSuccess = function () {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#change-password-success').modal('show')
-  $('#message').text('CPW suceeded')
   $('#newcontent').html('')
 }
 
@@ -62,7 +56,6 @@ const changePasswordFailure = function (error) {
   $('select').each(function () { this.selectedIndex = 0 })
   $('#change-password-failure').modal('show')
   store.error = error
-  $('#message').text('CPW failed')
   $('#newcontent').html('')
 }
 const signOutSuccess = function () {

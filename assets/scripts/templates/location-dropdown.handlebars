@@ -1,4 +1,4 @@
-<select name="route[location_id]" required>
+<select class="form-control" id="locationdropdown" name="route[location_id]" required>
   <option value="" selected disabled hidden>Location</option>
   {{#each locations as |location|}}
   <option value="{{location.id}}">{{location.name}}</option>

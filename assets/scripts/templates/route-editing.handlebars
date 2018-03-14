@@ -28,9 +28,12 @@
         Attempted with {{route.hangs}} hangs<br>
       {{else}} Not yet attempted<br>
       {{/if}}
-      <strong>Comments:</strong>  {{route.comments}}
+      <strong>Comments:</strong>  {{route.comments}}<br>
+      <button class="route-update btn btn-sm btn-info" data-id={{route.id}}>Update</button>
+      <button class="route-delete btn btn-sm btn-danger" data-id={{route.id}}>Delete</button>
     </div>
   </div>
+
 {{else}}
 
 <h2> No matches found</h2>

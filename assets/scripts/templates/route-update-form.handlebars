@@ -1,0 +1,79 @@
+{{#each routes as |route|}}
+
+<form id="route-update-form" class="form-horizontal">
+  <h3>Update Route</h3>
+  <fieldset>
+    <div class="form-group">
+      <label for="updateroutename" class= "control-label col-xs-3">Route Name</label>
+      <div class="col-xs-9">
+        <input required type="text" class='form-control' id="updateroutename" value={{route.name}} name="route[name]" placeholder="Route Name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="location-dropdown" class= "control-label col-xs-3">Route Location</label>
+      <div class="col-xs-9">
+        <span class="location-dropdown"> </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updateroutetype" class= "control-label col-xs-3">Route Type</label>
+      <div class="col-xs-9">
+        <select class="form-control" id="updateroutetype" name="route[route_type]" form="route-update-form" required>
+          <option value="0">Boulder</option>
+          <option value="1">Top Rope</option>
+          <option value="2">Lead</option>
+          <option value="3">Sport</option>
+          <option value="4">Trad.</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updateroutelocation" class= "control-label col-xs-3">Route Rating</label>
+      <div class="col-xs-9">
+        <input required type="text" class="form-control" id="updaterouterating" value={{route.rating}} name="route[rating]" placeholder="Route Rating">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updateroutecolor" class= "control-label col-xs-3">Route Color</label>
+      <div class="col-xs-9">
+        <input type="text" class="form-control" id="updateroutecolor" name="route[color]" value={{route.color}} placeholder="Route Color">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updaterouteprogress" class= "control-label col-xs-3">My Progress</label>
+      <div class="col-xs-9">
+        <select class="form-control" id="updaterouteprogress" name="route[progress]" form="route-update-form" required>
+          <option selected='selected' value="notyetattempted">Not Yet Attempted</option>
+          <option {{#if route.attempted}} selected {{/if}}  value="attempted">Attempted</option>
+          <option {{#if route.completed}} selected {{/if}}  value="completed">Completed</option>
+          <option {{#if route.sent}} selected {{/if}} value="sent">Sent!</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="updateroutehangs" class= "control-label col-xs-3">Number of Hangs</label>
+        <div class="col-xs-9">
+          <input required type="number" min="0" class="form-control" id="updateroutehangs" value={{route.hangs}} name="route[hangs]" placeholder="Route Hangs Here">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updaterouteproject" class= "control-label col-xs-3">Mark as Project?</label>
+      <div class="col-xs-2">
+        <input required type="radio" name="route[project]" {{#if route.project}} checked {{/if}} value=true >Yes
+      </div>
+      <div class="col-xs-2">
+        <input required type="radio" name="route[project]" {{#unless route.project}} checked {{/unless}} value=false >No
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="updateroutecomments" class= "control-label col-xs-3">Comments</label>
+      <div class="col-xs-9">
+        <textarea class="form-control" id="updateroutecomments" name="route[comments]" placeholder="Comments" rows="3">{{route.comments}}</textarea>
+      </div>
+    </div>
+    <input name="route[id]" type="hidden" value="{{route.id}}">
+    <input required type="submit" class='btn btn-info btn-lg btn-block' value="Update Route">
+  </fieldset>
+</form>
+{{/each}}
