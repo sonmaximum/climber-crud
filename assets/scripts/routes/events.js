@@ -65,6 +65,12 @@ const onRouteCreate = function (event) {
 const onRouteUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  if (!data.route.comments) {
+    data.route.comments = 'None'
+  }
+  if (!data.route.color) {
+    data.route.color = 'N/A'
+  }
   api.routeUpdate(data)
     .then(ui.routeUpdateSuccess)
     .catch(ui.routeUpdateFailure)
@@ -190,12 +196,6 @@ const showAllRouteOptions = function (event) {
 const onRouteShowByProgress = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  if (!data.route.comments) {
-    data.route.comments = 'None'
-  }
-  if (!data.route.color) {
-    data.route.color = 'N/A'
-  }
   switch (data.route.progress) {
     case 'attempted':
       onRouteAttempted(event)
