@@ -113,7 +113,7 @@ const routeShowByTypeSuccess = function (data) {
   data.routes.forEach(function (route) {
     route.route_type = routeTypeArray[route.route_type]
   })
-  const indexRoutesHtml = editRoutesTemplate({ routes: data.routes })
+  const indexRoutesHtml = indexRoutesTemplate({ routes: data.routes })
   $('#newcontent').html('')
   if (data.routes[0]) {
     $('#newcontent').html('<h3>All ' + data.routes[0].route_type + ' Routes</h3>')
@@ -212,7 +212,6 @@ const routeMyShowByLocationSuccess = function (data) {
   })
   const indexRoutesHtml = editRoutesTemplate({ routes: data.routes })
   $('#newcontent').html('')
-  console.log('data is', data)
   if (data.routes[0]) {
     $('#newcontent').html('<h3>My Routes at ' + data.routes[0].location.name + '</h3>')
   }
