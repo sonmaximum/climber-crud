@@ -190,6 +190,12 @@ const showAllRouteOptions = function (event) {
 const onRouteShowByProgress = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  if (!data.route.comments) {
+    data.route.comments = 'None'
+  }
+  if (!data.route.color) {
+    data.route.color = 'N/A'
+  }
   switch (data.route.progress) {
     case 'attempted':
       onRouteAttempted(event)

@@ -65,6 +65,9 @@ const onLocationCreate = function (event) {
 const onLocationUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  if (!data.location.comments) {
+    data.location.comments = 'None'
+  }
   api.locationUpdate(data)
     .then(ui.locationUpdateSuccess)
     .catch(ui.locationUpdateFailure)
