@@ -101,7 +101,7 @@ const locationCreateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#newcontent').html('')
-  const createLocationHtml = indexLocationsTemplate({ locations: data })
+  const createLocationHtml = editableLocationsTemplate({ locations: data })
   $('#newcontent').html('<h3>Success!  Location Created</h3>')
   $('#newcontent').append(createLocationHtml)
 }
@@ -119,9 +119,9 @@ const locationUpdateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   $('#newcontent').html('')
-  const createLocationHtml = indexLocationsTemplate({ locations: data })
+  const updateLocationHtml = editableLocationsTemplate({ locations: data })
   $('#newcontent').html('<h3>Success!  Location Updated</h3>')
-  $('#newcontent').append(createLocationHtml)
+  $('#newcontent').append(updateLocationHtml)
 }
 
 const locationUpdateFailure = function (error) {

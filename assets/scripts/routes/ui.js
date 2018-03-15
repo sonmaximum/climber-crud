@@ -73,7 +73,7 @@ const routeCreateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   data.route.route_type = routeTypeArray[data.route.route_type]
-  const createRouteHtml = indexRoutesTemplate({ routes: data })
+  const createRouteHtml = editRoutesTemplate({ routes: data })
   $('#newcontent').html('<h3>Success!  Route Created</h3>')
   $('#newcontent').append(createRouteHtml)
 }
@@ -91,9 +91,9 @@ const routeUpdateSuccess = function (data) {
   $('input:radio').prop('checked', false)
   $('select').each(function () { this.selectedIndex = 0 })
   data.route.route_type = routeTypeArray[data.route.route_type]
-  const createRouteHtml = indexRoutesTemplate({ routes: data })
+  const updateRouteHtml = editRoutesTemplate({ routes: data })
   $('#newcontent').html('<h3>Success!  Route Updated</h3>')
-  $('#newcontent').append(createRouteHtml)
+  $('#newcontent').append(updateRouteHtml)
 }
 
 const routeUpdateFailure = function (error) {
